@@ -33,10 +33,16 @@ description: The first meeting of the project group of the artificial intelligen
 1. ~~Erklärung des Themas ([[Patryk Gadziomski]] stellt seine Idee vor)~~
 2. ~~Wünsche der beiden Teammitglieder in Hinsicht auf das Thema (Schwerpunkt, eigene Ideen, etc.) einarbeiten ([[Elena Torlopova]] stellt ihre Ideen/Wünsche im Projekt vor)~~
 3. ~~Klärung der Datenquelle~~
-	1. Diskussion eines gemeinsamen Obsidian-Vaults mit Git-Verknüpfung zur Dokumentation und der gleichzeitigen Benutzung als Datenquelle für das Projekt
-4. Aufgabenverteilung
+	1. ~~Diskussion eines gemeinsamen Obsidian-Vaults mit Git-Verknüpfung zur Dokumentation und der gleichzeitigen Benutzung als Datenquelle für das Projekt~~
+4. Recherche
+	1. RAG 
+		1. LangChain
+	2. Obsidian
+		1. Metadaten (YAML)
+	3. Linked Data
+	4. Personal Knowledge Management
 5. Vollendung der [[Projektbeschreibung]]
-6. Die kommenden Deadlines beachten
+6. Die kommenden Deadlines beachten - bis 27.11.2025 (Motivation Elena, Gliederung Patryk)
 7. Die 1. Abgabe fertigstellen (Deadline: 12.01.2026) und an [[M. Eng. Janine Breßler]] schicken
 8. Terminfindung für regelmäßige Meetings
 
