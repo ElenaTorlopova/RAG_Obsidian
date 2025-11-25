@@ -32,7 +32,7 @@ description: The first meeting of the project group of the artificial intelligen
 #### Agenda:
 1. ~~Erklärung des Themas ([[Patryk Gadziomski]] stellt seine Idee vor)~~
 2. ~~Wünsche der beiden Teammitglieder in Hinsicht auf das Thema (Schwerpunkt, eigene Ideen, etc.) einarbeiten ([[Elena Torlopova]] stellt ihre Ideen/Wünsche im Projekt vor)~~
-3. Klärung der Datenquelle
+3. ~~Klärung der Datenquelle~~
 	1. Diskussion eines gemeinsamen Obsidian-Vaults mit Git-Verknüpfung zur Dokumentation und der gleichzeitigen Benutzung als Datenquelle für das Projekt
 4. Aufgabenverteilung
 5. Vollendung der [[Projektbeschreibung]]
