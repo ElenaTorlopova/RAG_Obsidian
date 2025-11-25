@@ -1,0 +1,3 @@
+- [ ] Flowchart der technischen Funktion erstellen
+- [ ] Gliederung erstellen
+- [ ] 
