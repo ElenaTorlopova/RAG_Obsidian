@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "0fd32154f3fbd3bc",
+    "id": "3846bd77beb4d3e3",
     "type": "split",
     "children": [
       {
-        "id": "8f08d0066022a248",
+        "id": "dd1694511798b20c",
         "type": "tabs",
         "children": [
           {
-            "id": "8a5393593273780b",
+            "id": "b3a6ed74d7ed66f2",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "1604c2806640393d",
+    "id": "81d05867d113ce37",
     "type": "split",
     "children": [
       {
-        "id": "5f30caabfa3d540f",
+        "id": "5287939b802cd19b",
         "type": "tabs",
         "children": [
           {
-            "id": "c55bcba965b366cb",
+            "id": "4993dd04ee9b28d7",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,11 +44,11 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Dateiexplorer"
+              "title": "Files"
             }
           },
           {
-            "id": "801057eb1acca19d",
+            "id": "0edc960cd6c5c20f",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,40 +61,50 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Suchen"
+              "title": "Search"
             }
           },
           {
-            "id": "161ad5b13175834b",
+            "id": "c8c221e09a53bcd3",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "Lesezeichen"
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 284.5
   },
   "right": {
-    "id": "228ec818901f36aa",
+    "id": "db3c5a9aa7041acf",
     "type": "split",
     "children": [
       {
-        "id": "fe4c6fd4d995a22a",
+        "id": "687819b0d55361de",
         "type": "tabs",
         "children": [
           {
-            "id": "b1fa16939564fa14",
+            "id": "ffba2c5c061d0fcb",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "d3a44d6d1a64822f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,35 +114,60 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für KI-Projekt Meeting - 1. Kick-Off"
+              "title": "Backlinks for README"
             }
           },
           {
-            "id": "a2f1c83cdc3436ce",
+            "id": "fe849576a12b7404",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Ausgehende Links von KI-Projekt Meeting - 1. Kick-Off öffnen"
+              "title": "Outgoing links from README"
             }
           },
           {
-            "id": "ebd85ced3003b732",
+            "id": "18c39ba77c2fa606",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph-Ansicht"
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           },
           {
-            "id": "efc23e2a0565b4f4",
+            "id": "dc3101e8118c014f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2b84222795cfbbf5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e417d1105d162311",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -145,62 +180,31 @@
               "icon": "lucide-tags",
               "title": "Tags"
             }
-          },
-          {
-            "id": "c9416c738218f67d",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "Alle Eigenschaften"
-            }
-          },
-          {
-            "id": "db5548b14c166467",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Gliederung von KI-Projekt Meeting - 1. Kick-Off"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 357.5
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Schnellauswahl öffnen": false,
-      "graph:Graph-Ansicht öffnen": false,
-      "canvas:Neuen Canvas erstellen": false,
-      "daily-notes:Heutige Notiz öffnen": false,
-      "templates:Vorlage einfügen": false,
-      "command-palette:Befehlspalette öffnen": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
       "bases:Create new base": false
     }
   },
-  "active": "8a5393593273780b",
+  "active": "b3a6ed74d7ed66f2",
   "lastOpenFiles": [
-    "Projektbeschreibung.md",
+    "Aufgaben.md",
     "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
-    "Test",
-    "Meeting/_Meeting",
-    "Unbenannt 1",
+    "Projektbeschreibung.md",
+    "README.md",
     "Meeting",
-    "README.md"
+    "KI-Projekt Meeting - 1. Kick-Off.md"
   ]
 }
