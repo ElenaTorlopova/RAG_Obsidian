@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3406d32c1afda958",
+        "id": "8f08d0066022a248",
         "type": "tabs",
         "children": [
           {
-            "id": "ebd85ced3003b732",
+            "id": "8a5393593273780b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KI-Projekt Meeting - 1. Kick-Off.md",
+                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
                 "mode": "source",
                 "source": false
               },
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "KI-Projekt Meeting - 1. Kick-Off.md",
+                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,12 +113,22 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "KI-Projekt Meeting - 1. Kick-Off.md",
+                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
               "title": "Ausgehende Links von KI-Projekt Meeting - 1. Kick-Off öffnen"
+            }
+          },
+          {
+            "id": "ebd85ced3003b732",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph-Ansicht"
             }
           },
           {
@@ -156,7 +166,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "KI-Projekt Meeting - 1. Kick-Off.md",
+                "file": "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -165,12 +175,12 @@
               "title": "Gliederung von KI-Projekt Meeting - 1. Kick-Off"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 357.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,9 +193,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "ebd85ced3003b732",
+  "active": "c55bcba965b366cb",
   "lastOpenFiles": [
-    "README.md",
-    "KI-Projekt Meeting - 1. Kick-Off.md"
+    "Meeting/_Meeting",
+    "Unbenannt 1",
+    "Meeting",
+    "Meeting/KI-Projekt Meeting - 1. Kick-Off.md",
+    "README.md"
   ]
 }
