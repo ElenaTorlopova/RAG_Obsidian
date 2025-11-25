@@ -1,15 +1,16 @@
 ---
 title: Project
-date: 2025-10-13
-modified: 2025-10-18
-author: "[[Patryk Gadziomski]]"
+date: 2025-11-25
+modified: 2025-11-25
+author:
+  - "[[Patryk Gadziomski]]"
+  - "[[Elena Torlopova]]"
 tags:
   - master
-  - ai
   - th_wildau
-origin: "[[KÜNSTLICHE_INTELLIGENZ.base]]"
+  - artificial_inteligence
+origin:
 sources:
-  - "[[01_Intro.pdf]]"
 reused-for:
 description: Beschreibung und Planung des Projektes für das Modul "Künstliche Intelligenz" im Studiengang Bibliotheksinformatik an der technischen Hochschule Wildau.
 language: german
