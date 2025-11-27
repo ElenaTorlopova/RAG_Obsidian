@@ -1,3 +1,3 @@
 - [ ] Flowchart der technischen Funktion erstellen
 - [ ] Gliederung erstellen
-- [ ] gitignore für workspace
+- [x] gitignore für workspace
