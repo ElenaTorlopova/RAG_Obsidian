@@ -1,3 +1,11 @@
 - [ ] Flowchart der technischen Funktion erstellen
-- [ ] Gliederung erstellen
+- [x] Gliederung erstellen
 - [x] gitignore für workspace
+- [x] Motivation mzss geschrieben werden
+- [ ] Recherche
+  - [ ] RAG
+  - [ ] LLM
+  - [ ] Linked Data
+  - [ ] Knwoledge Graphs
+  - [ ] Personal Knowledge Management
+... 
