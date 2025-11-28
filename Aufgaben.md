@@ -2,3 +2,10 @@
 - [x] Gliederung erstellen
 - [x] gitignore für workspace
 - [ ] Branch einrichten
+- [x] Motivation mzss geschrieben werden
+- [ ] Recherche
+  - [ ] RAG
+  - [ ] LLM
+  - [ ] Linked Data
+  - [ ] Knwoledge Graphs
+  - [ ] Personal Knowledge Management
