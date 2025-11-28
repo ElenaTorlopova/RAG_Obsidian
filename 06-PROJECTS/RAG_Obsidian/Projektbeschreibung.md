@@ -3,8 +3,8 @@ title: Projektbeschreibung
 date: 2025-11-25
 modified: 2025-11-25
 authors:
-  - "[[Patryk Gadziomski]]"
-  - "[[Elena Torlopova]]"
+  - "[[04-PERSONS/Patryk Gadziomski]]"
+  - "[[00-NETWORK/DB/Elena Torlopova]]"
 tags:
   - master
   - th_wildau
@@ -13,9 +13,9 @@ sources:
 language: german
 ---
 # Projektbeschreibung
-Student:in: [[Patryk Gadziomski]]; Matr.: 5022632
-Student:in: [[Elena Torlopova]]; Matr.: 50224937
-Dozent:in: [[M. Eng. Janine Breßler]]
+Student:in: [[04-PERSONS/Patryk Gadziomski]]; Matr.: 5022632
+Student:in: [[00-NETWORK/DB/Elena Torlopova]]; Matr.: 50224937
+Dozent:in: [[00-NETWORK/DB/M. Eng. Janine Breßler]]
 Datum: 27.11.2025
 ## Entwicklung eines RAG-basierten Wissenserschliessungssystems
 Im Rahmen dieses Projekts wird ein [Retrieval Augmented Generation](https://de.wikipedia.org/wiki/Retrieval-Augmented_Generation) (RAG)-System entwickelt,

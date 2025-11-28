@@ -1,6 +1,7 @@
 ---
 dcterms:title:
-dcterms:creator:
+schema:author:
+dcterms:contributor:
 dcterms:created:
 dcterms:modified:
 schema:about:

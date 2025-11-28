@@ -1,6 +1,7 @@
 ---
 dcterms:title: Resource Description Framework (RDF)
-dcterms:creator: "[[Patryk Gadziomski]]"
+schema:author: "[[04-PERSONS/Patryk Gadziomski]]"
+dcterms:contributor: "[[00-NETWORK/DB/Elena Torlopova]]"
 dcterms:created: 2025-11-28
 dcterms:modified: 2025-11-28
 schema:about: Resource Description Framework Standards
