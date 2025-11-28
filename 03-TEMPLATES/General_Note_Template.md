@@ -1,0 +1,16 @@
+---
+dcterms:title:
+dcterms:creator:
+dcterms:created:
+dcterms:modified:
+schema:about:
+dcterms:subjects:
+tags:
+dcterms:isPartOf:
+dcterms:references:
+content:
+foaf:primaryTopic:
+geo:lat:
+geo:long:
+geo:location:
+---
