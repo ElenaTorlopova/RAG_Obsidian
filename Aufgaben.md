@@ -1,3 +1,4 @@
 - [ ] Flowchart der technischen Funktion erstellen
-- [ ] Gliederung erstellen
+- [x] Gliederung erstellen
 - [x] gitignore für workspace
+- [ ] Branch einrichten
