@@ -1,7 +1,7 @@
-- [ ] Flowchart der technischen Funktion erstellen
+- [x] Flowchart der technischen Funktion erstellen
 - [x] Gliederung erstellen
 - [x] gitignore für workspace
-- [ ] Branch einrichten
+- [x] Branch einrichten
 - [x] Motivation mzss geschrieben werden
 - [ ] Recherche
   - [ ] RAG

@@ -1,7 +1,7 @@
 ---
 dcterms:title: Resource Description Framework (RDF)
-schema:author: "[[04-PERSONS/Patryk Gadziomski]]"
-dcterms:contributor: "[[00-NETWORK/DB/Elena Torlopova]]"
+schema:author: "[[Patryk Gadziomski]]"
+dcterms:contributor: "[[Elena Torlopova]]"
 dcterms:created: 2025-11-28
 dcterms:modified: 2025-11-28
 schema:about: Resource Description Framework Standards
@@ -43,7 +43,7 @@ dcterms:references:
   - https://www.w3.org/TR/owl-time/
   - https://www.w3.org/2003/01/geo/
   - https://www.w3.org/TR/void/
-content: beruflich
+content:
 foaf:primaryTopic: Resource Description Framework
 geo:lat: "52.5200"
 geo:long: "13.4050"
