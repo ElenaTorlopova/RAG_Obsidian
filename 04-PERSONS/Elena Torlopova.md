@@ -19,6 +19,5 @@ schema:alumniOf:
 schema:memberOf:
   - "[[RAG_Obsidian]]"
 schema:worksFor:
-  - "[[Fraunhofer IPA]]"
 foaf:img:
 ---
