@@ -19,5 +19,6 @@ schema:alumniOf:
 schema:memberOf:
   - "[[RAG_Obsidian]]"
 schema:worksFor:
+  - "[[Das Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 foaf:img:
 ---

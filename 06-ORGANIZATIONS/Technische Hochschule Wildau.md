@@ -15,6 +15,7 @@ schema:department:
 schema:hasCourse:
   - "[[M.Sc. Bibliotheksinformatik]]"
 schema:employee:
+  - "[[M. Eng. Janine Breßler]]"
 schema:alumni:
   - "[[M. Eng. Janine Breßler]]"
 schema:director:
