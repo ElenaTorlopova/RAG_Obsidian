@@ -11,7 +11,4 @@ dcterms:isPartOf:
 dcterms:references:
 content:
 foaf:primaryTopic:
-geo:lat:
-geo:long:
-geo:location:
 ---

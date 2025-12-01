@@ -7,8 +7,9 @@ authors:
   - "[[Elena Torlopova]]"
 tags:
   - master
-  - th_wildau
   - artificial_inteligence
+  - technical_university_wildau
+  - retrieval_augmented_generation
 sources:
 language: german
 ---
