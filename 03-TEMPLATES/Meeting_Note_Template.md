@@ -16,7 +16,7 @@ geo:lat:
 geo:long:
 geo:location:
 ---
-# <u>2. Meeting - Research Plan and Q&A</u>
+# <u>X. Meeting - Research Plan and Q&A</u>
 **Treffpunkt**: Discord Server (online)
 **Zeitpunkt**: XX:XX Uhr CET, XX.XX.20XX
 **Studiengang**: [[BIBLIOTHEKSINFORMATIK]] (BIM 2025)
