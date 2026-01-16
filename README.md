@@ -13,16 +13,15 @@ Welcome to the RAG Obsidian Project. Here we want to learn how to utilize RAG fo
 		- [x] Personal Knowledge Management ([[Patryk Gadziomski]])
 		- [x] Large Language Models ([[Elena Torlopova]])
 		- [x] Retrieval Augmented Generation ([[Elena Torlopova]])
+		- [x] Datenschemata festlegen
 3. Bis 20.02.2026
 	- [ ] Präsentation erstellen
 		- [ ] Themen 1-3 + 5.1 ([[Elena Torlopova]])
 		- [ ] Themen 4-8 + 3.2 ([[Patryk Gadziomski]])
 		- [ ] [[Patryk Gadziomski]] --> Paper lesen
-4. 
+4. Bis 8.-15.02
 	- [ ] Technische Umsetzung (V. 1.0) ([[Patryk Gadziomski]])
-	- [ ] Datenaufbereitung
-		- [ ] Converter Skript erstellen
-	- [ ] Technische Umsetzung (V. 2.0)
-
-	- [ ] Datenschemata festlegen
+	- [ ] Datenaufbereitung ([[Elena Torlopova]] & [[Patryk Gadziomski]])
+		- [ ] Converter Skript erstellen [[Patryk Gadziomski]]
+	- [ ] Technische Umsetzung (V. 2.0) [[Patryk Gadziomski]]
 
