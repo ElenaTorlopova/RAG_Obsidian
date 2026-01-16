@@ -7,16 +7,22 @@ Welcome to the RAG Obsidian Project. Here we want to learn how to utilize RAG fo
 	- [x] Projektumgebung einrichten (Obsidian & GitHub)
 	- [x] Erste grobe Gliederung erstellen
 2. Bis 31.12.2025
-	- [ ] Recherche
-		- [ ] Linked (Open) Data ([[Patryk Gadziomski]])
-		- [ ] Obsidian ([[Patryk Gadziomski]])
-		- [ ] Personal Knowledge Management ([[Patryk Gadziomski]])
+	- [x] Recherche
+		- [x] Linked (Open) Data ([[Patryk Gadziomski]])
+		- [x] Obsidian ([[Patryk Gadziomski]])
+		- [x] Personal Knowledge Management ([[Patryk Gadziomski]])
 		- [x] Large Language Models ([[Elena Torlopova]])
 		- [x] Retrieval Augmented Generation ([[Elena Torlopova]])
+3. Bis 20.02.2026
+	- [ ] Präsentation erstellen
+		- [ ] Themen 1-3 + 5.1 ([[Elena Torlopova]])
+		- [ ] Themen 4-8 + 3.2 ([[Patryk Gadziomski]])
+		- [ ] [[Patryk Gadziomski]] --> Paper lesen
+4. 
 	- [ ] Technische Umsetzung (V. 1.0) ([[Patryk Gadziomski]])
-3. Bis XX.XX.2026
-	- [ ] Datenschemata festlegen
 	- [ ] Datenaufbereitung
 		- [ ] Converter Skript erstellen
 	- [ ] Technische Umsetzung (V. 2.0)
-	- [ ] Präsentation erstellen
+
+	- [ ] Datenschemata festlegen
+
