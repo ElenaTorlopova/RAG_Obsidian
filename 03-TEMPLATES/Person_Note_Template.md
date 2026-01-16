@@ -15,5 +15,4 @@ schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:
-foaf:img:
 ---
