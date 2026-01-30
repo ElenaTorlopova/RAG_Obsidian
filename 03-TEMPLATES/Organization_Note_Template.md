@@ -3,7 +3,6 @@ schema:name:
 schema:legalName:
 schema:alternativeName:
 schema:description:
-schema:logo:
 schema:url:
 schema:email:
 schema:telephone:
@@ -19,6 +18,5 @@ schema:subsidiary:
 schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-context:
+dcterms:subjects:
 ---
