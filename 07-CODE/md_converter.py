@@ -21,7 +21,7 @@ sources:
 ## Docling from IBM (Better output, but still needs postprocessing)
 from docling.document_converter import DocumentConverter
 
-source = "05_Convolutional_Neural_Networks.pdf"  # document per local path or URL
+source = r"..\\02-TH-WILDAU-BIM25-LECTURE\\02_Einführung.pdf"  # document per local path or URL
 converter = DocumentConverter()
 result = converter.convert(source)
 print(result.document.export_to_markdown())  # output: "## Docling Technical Report[...]"
