@@ -179,3 +179,4 @@ WICHTIG:
 
 # TODO:
 # - Metadata output with the retrieval not the model
+# - Try Graph RAG
