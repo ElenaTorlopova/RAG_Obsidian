@@ -12,6 +12,11 @@ dcterms:isPartOf:
   - "[[Artificial_Intelligence_BIM25-Lecture]]"
   - "[[Bibliotheksinformatik]]"
 dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 # Large Language Models
 - Sind ein Unterbereich der Künstlichen Netze

@@ -152,21 +152,23 @@ if __name__ == '__main__':
     model = choose_llm_model("Qwen/Qwen2.5-0.5B-Instruct", 'huggingface')
     embeddings = choose_embedding_model("Qwen/Qwen3-Embedding-0.6B")
     vector_store = create_db(embeddings)
-    docs = load_data(r'..\..\05-PROJECT-WIKI\AI-Lecture-BIM')
+    docs = load_data(r'..\..\05-PROJECT-WIKI\BIM-Lectures\AI-Lecture-BIM')
     all_splits = document_splitter(docs)
     document_ids = vector_store.add_documents(documents=all_splits)
     indexing(all_splits, vector_store)
     tools = [retrieve_context]
 
-    prompt = (
-        "You have access to a tool that retrieves context from a a markdown database. "
-        "Use the tool to help answer user queries."
-    )
+    system_prompt = """Du bist ein hilfreicher Assistent, der Fragen basierend auf bereitgestellten Dokumenten beantwortet.
+WICHTIG: 
+- Gib bei deiner Antwort IMMER die Quelle(n) an, aus denen die Information stammt.
+- Zitiere die Metadaten (filename, source, etc.) der verwendeten Dokumente.
+- Format: "Laut [Quelle: filename] ..." oder am Ende "Quellen: ..."
+"""
 
-    agent = create_agent(model, tools, system_prompt=prompt)
+    agent = create_agent(model, tools, system_prompt=system_prompt)
 
     query = (
-        "Was ist KI? Gibt mir eine sehr kurze Antwort und die Quelle."
+        "Was ist KI?"
     )
 
     for event in agent.stream(
@@ -175,5 +177,6 @@ if __name__ == '__main__':
     ):
         event["messages"][-1].pretty_print()
 
-
-# Die Metadaten werden nicht verwendet....
+# TODO:
+# - Metadata output with the retrieval not the model
+# - Try Graph RAG
