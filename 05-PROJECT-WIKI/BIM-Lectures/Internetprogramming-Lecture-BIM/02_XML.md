@@ -1,20 +1,22 @@
 ---
-title: 02_XML
-date: 2026-01-03
-modified: 2026-01-03
-tags:
-  - master
-origin: "[[BIBLIOTHEKSINFORMATIK]]"
-sources:
+dcterms:title: 02_XML
+dcterms:contributor:
   - "[[Marcel-Dominique Block]]"
-  - "[[02_XML.html]]"
-language: german
-file-format: markdown (.md)
-note-type: lecture
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Web Development]]"
+  - "[[XML]]"
+dcterms:isPartOf:
+  - "[[Internetprogramming-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
-# <u>2. XML</u>
+# 2. XML
 ## 2.1. XML
 XML
 - Standardisierte Beschreibungssprache (Auszeichnungssprache, Markup Language)
@@ -45,9 +47,7 @@ Geschichte
 - Microsoft, IBM und weitere entwickeln XML
 	- Standardisierung erfolgt durch das World-Wide-Web-Consortium (W3C)
 ### 2.1.1. Zusammenhänge
-Zusammenhänge zwischen SGML, HTML und XML:
-
-![[IMG DB/Unbenannt 1.png|500]]
+Zusammenhänge zwischen SGML, HTML und XML.
 
 - XML kombiniert die Vorteile von SGML und HTML
 	- Flexibilität & Beschreibungsmöglichkeiten von Strukturen aus SGML
@@ -60,10 +60,6 @@ Zusammenhänge zwischen SGML, HTML und XML:
 	- CML (Chemical Markup Language)
 	- SMIL (Synchronized Multimodel Integration Language)
 - XML ist eher ein Werkzeug für Spezialisten während Endanwender mit XML über Anwendungen und XHTML als XML konformes HTML, mit XML in Verbindung kommen
-
-Trennung von Inhalten und Darstellung:
-
-![[Unbenannt 1 1.png]]
 ### 2.1.3. Eigenschaften von XML-Dokumenten
 - Ein XML-Dokument ist wohlgeformt (well-formed), wenn es die Syntaxregeln der W3C erfüllt. z.B.:
 	- Jedes Element ist entweder leer (`<tag ../>`) oder wird durch ein schließendes Tag (`</tag>`) beendet
@@ -394,8 +390,6 @@ xsi:schemaLocation="http://www.w3schools.com note.xsd">
 	- Strukturelle Transformationen
 	- Erzeugung dynamischer Dokumente
 	- Darstellungstransformationen
-
-![[Unbenannt 2.png]]
 ### 2.4.1. XSL
 XSL baut auf zwei Quellen auf:
 - Cascading Style Sheets (CSS) erlauben die einheitliche Formatierung von HTML-Tags. CSS ist standardisiert und aktuell in Version 3 verfügbar. Der Standard wird vollständig von allen aktuellen Browsern unterstützt.
@@ -412,21 +406,14 @@ XSL besteht aus drei separaten Sprachen:
 	- XPointer
 	- XLink
 	- XQuery
-
-![[Unbenannt 3.png]]
 ### 2.4.3. XSL & XSLT
 XSLT steht für XSL Transformations und wird genutzt um ein XML-Dokument in ein anderen XML Dokument zu transformieren
 
-![[Unbenannt 4.png]]
-
 Beispiel: Unterschiedliche XSL Transformationen auf die gleiche XML-Datei angewandt
-![[Unbenannt 5.png]]
 
 - XSL arbeitet auf dem abstrakten Strukturbaum des XML-Dokuments (XPath)
 - Mit Hilfe von XSLT werden im XSL-Stylesheet die Transformationsregeln beschrieben (Templates)
 - Strukturbaum wird durchlaufen, für jeden Knoten wird ein passendes Template aus dem XSL-Stylesheet gesucht und angewendet
-
-![[Unbenannt 6.png]]
 
 Beispiel: Umwandlung des folgenden XMLs
 ```xml
@@ -494,8 +481,6 @@ Nun müssen wir das XML-Dokument noch um die Stylesheet-Referenz ergänzen.
 ```xml
 <?xml-stylesheet type="text/xsl" href="cdcatalog.xsl"?>
 ```
-
-![[Unbenannt 7.png]]
 ### 2.4.4. Fazit: Präsentation von XML-Dokumenten
 - XML Dokumente können mit Hilfe von XSL in verschiedenen Medien dargestellt werden zentrale Veraltung der Inhalte
 	- Darstellung abhängig vom Anzeigegerät

@@ -1,24 +1,24 @@
 ---
-title: 13_Funknetze
-date: 2025-10-13
-modified: 2025-12-25
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 13_Funknetze
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[13_Funknetze.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Elektromagnetische Strahlung
 - Die Wellenlänge der hochfrequenten elektromagnetischen Felder liegt zwischen 3km und 1mm
 - Die elektrische und die magnetische Komponente sich bei HF-EMV sehr eng miteinander gekoppelt. Daher kann man die Wirkung dieser Strahlung kaum nicht auf de Wirkung einer der beiden Komponenten zurückführen
-
-![[Pasted image 20251225211358.png]]
 ## Spezifische Absorptionsrate SAR
 - Die SAR ist eine physikalische Größe und ist ein Maß für die Absorption von elektromagnetischen Feldern in biologischem Gewebe, welche zu dessen Erwärmung führt
 - Sie ergibt sich theoretisch aus dem Betragsquadrat der elektrischen Feldstärke multipliziert mit der elektrischen Leitfähigkeit und geteilt durch die Dichte des jeweiligen Gewebes
@@ -35,8 +35,6 @@ Folgende Faktoren sind zu beachten:
 - Zunehmende Vielzahl von Strahlungsquellen besonders in Ballungsgebieten. Sie liegt heute noch weit unter den Grenzwerten im unteren einstelligen Prozentbereich
 ## Funkfrequenzen und -standards
 Folgende Frequenzen gehören zu den lizenzfreien ISM (Industrial, Scientific, Medical) Bändern:
-
-![[Pasted image 20251226011555.png]]
 ## 868 Mhz
 - 868 MHZ ist die meistgebrauchte Frequenz für Sensoren
 - Der Frequenzbereich von 868 bis 870 MHz wurde vom rat der Europäischen Postbehörden (CEPT) als spezieller Frequenzbereich ausschließlich für Short Range Devices reserviert
@@ -47,8 +45,6 @@ Folgende Frequenzen gehören zu den lizenzfreien ISM (Industrial, Scientific, Me
 ## Duty Cycles
 - Durch die Duty Cycles wird sichergestellt, dass auch bei verstärkter Nutzung dieser Funkfrequenzen, wie das im Bereich der Hausautomation zu erwarten ist, der störungsfreie Betrieb mehrere Systeme gewährleistet ist
 - Mit zunehmenden Duty Cycle nimmt auch die Wahrscheinlichkeit von Störungen zu
-
-![[Pasted image 20251226012301.png]]
 ## Frequenzen und Protokolle
 - Auch wenn Produkte dieselben Frequenzen nutzen, können sie sich oft nicht untereinander verständigen, da sie verschiedenen Protokolle nutzen
 - Beispielprotokolle für 868 MHz: enocean, zigbee, easywave, etc.
@@ -67,5 +63,3 @@ Elektromagnetische Felder haben Auswirkungen auf Menschen.
 - Daten werden über das Stromnetz durch Steckdosenadapter übertragen
 - Inhaus-Powerline gibt  es Schmalband- und Breitbandübertragung. Häufig genutzt wird Breitband.
 - Eingespeiste Daten können an jeder Steckdose der gleichen Phase abgerufen werden
-
-![[Pasted image 20251226013439.png]]

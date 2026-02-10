@@ -1,18 +1,20 @@
 ---
-title: 03_Schichtenmodelle
-date: 2025-10-13
-modified: 2025-12-19
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 03_Schichtenmodelle
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[03_Schichtenmodelle.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ,,- Realisierung komplexer Aufgaben auf Computernetzen
 - Verwendung monolithischer Lösungen ungeeignet
@@ -24,9 +26,6 @@ Schichtenhierarchische Architektur
 - Grundidee: Austausch von Diensten (services) zwischen den Schichten
 - Für jeden Dienst gibt es einen service user und einen service provider
 - Jede Schicht kann als service user und als service provider auftreten
-
-![[Pasted image 20251014065747.png]]
-
 - Jeder Schicht sind bestimmte Funktionalitäten zugeordnet
 - Eine Schicht baut auf der darunterliegenden auf, d.h. sie nutzt deren Funktionen zur Erbringung ihrer eigenen
 - Die Schichten kommunizieren über Schnittstellen (Interfaces) miteinander
@@ -40,7 +39,6 @@ Schichtenhierarchische Architektur
 - Innerhalb der Schichten sind die Instanzen (entities) die dienstbringenden Einheiten. Sie bedienen die Dienstzugangspunkte.
 
 Eine Instanz darf mehrere SAPs bedienen und nutzen.
-![[Pasted image 20251014070322.png]]
 ## Beispiel eines Dienstes
 - Ein Dienst ist gekennzeichnet durch den Dienstnamen:
 	- CONNECT für den Verbindungssaufbau
@@ -53,15 +51,12 @@ Eine Instanz darf mehrere SAPs bedienen und nutzen.
 	- confirm: Bestätigung beim Initiator
 
 Beispiel eines Verbindungsaufbaus einer verbindungsorientierten Verbindung.
-![[Pasted image 20251014070739.png]]
 ## Protokolle
 Die Regeln, denen Kommunikation auf einer Schnittstelle folgen muss, die Angaben, welche Kommunikationselemente auf dieser Schnittstelle ausgetauscht werden können und die Beschreibungen der Repräsentation dieser Kommunikationselemente werden Protokoll genannt.
 
 - Für jede Schicht der Kommunikationsarchitektur wird ein Protokoll definiert
 - Es wird zwischen den Softwarekomponenten abgewickelt, die diese Schicht repräsentieren
 - Diese Softwarekomponenten stellen über systeminterne Schnittstellen der darüberliegenden Schicht einen Dienst (Service) zur Verfügung.
-## Dienste und Protokolle
-![[Pasted image 20251014213158.png|500]]
 ## Vorteile der Schichtenarchitektur
 - Unabhängige Entwicklung von Komponenten
 - Austausch von Protokollen

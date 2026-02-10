@@ -1,18 +1,20 @@
 ---
-title: 09_Fehlererkennung
-date: 2025-10-13
-modified: 2025-12-23
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 09_Fehlererkennung
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[09_Fehlererkennung]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Fehlererkennung
 - Bitfehler auf dem Übertragungsweg haben Nachrichtenverfälschungen zur Folge
@@ -23,8 +25,6 @@ relations:
 - Jedes zu übertragende Zeichen wird um ein zusätzliches Paritätsbit erweitert. Bei gerader (ungerader) Parität wird die Anzahl der Einsen durch das Paritätsbit auf eine gerade (ungerade) Zahl ergänzt.
 - Durch Paritätsbits wird jede ungerade Anzahl von Bitfehlern erkannt
 - Die Längs- und Querprüfung VRC/LRC (Vertical / Longitudinal Redundancy Checking) liefert neben einer besseren Erkennung von Bitfehlern auch die Möglichkeit zur Korrektur
-
-![[Pasted image 20251223221141.png]]
 ## Zyklische Blocksicherung
 - Jede Zahl Z, welchem Zahlensystem sie auch angehört, kann als Polynom dargestellt werden: $a_n x^{n-1} + a_{n-1} x^{n-2} + a_{n-2} x^{n-3} + ... + a_3x^2 + a_2x^1 + a_1x^0$
 - Hierbei ist $n$ die Nummer der Stelle, $a$ der Stellenwert und $x$ die Basis des Zahlensystems
@@ -38,5 +38,3 @@ relations:
 - Dieser Divisionsrest (CRC) stellt die Prüfinformation dar und wird an die ursprünglichen Sendedaten angehängt und zum Empfänger übertragen
 - Er dividiert die gesamte empfangene Zahl wieder durch das gleiche Prüfpolynom
 - Ergibt sich bei dieser Division kein Rest, so war die Übertragung fehlerlos
-
-![[Pasted image 20251223223706.png]]

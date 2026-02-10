@@ -1,26 +1,26 @@
 ---
-title: 01_WWW
-date: 2026-01-03
-modified: 2026-01-03
-tags:
-  - master
-origin: "[[BIBLIOTHEKSINFORMATIK]]"
-sources:
+dcterms:title: 01_WWW
+dcterms:contributor:
   - "[[Marcel-Dominique Block]]"
-  - "[[01_WWW.html]]"
-language: german
-file-format: markdown (.md)
-note-type: lecture
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Web Development]]"
+  - "[[WWW]]"
+dcterms:isPartOf:
+  - "[[Internetprogramming-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
-# <u>1. WWW</u>
+# 1. WWW
 ## 1.1. Das Internet
 - Ein weltweiter Verbund von Rechnern und Rechnernetzen
 - Bezeichnet die physikalische Betrachtung des globalen Netzwerkes
 - Technische Weiterentwicklung wird durch die IETF (Internet Engineering Task Force) vorangetrieben
-
-![[internet-graph.jpeg|400]]
 ## 1.2. Kommunikation
 - Ein Netzwerk liegt dann vor wenn mindestens zwei elektronische Geräte miteinander kommuniziere können
 - Kommunikation erfolgt über standardisierte Protokolle --> Internetprotokollfamilie
@@ -43,9 +43,8 @@ Beispiele für Dienste im Internet und ihre Protokolle WWW (HTTP, HTTPS)
 - Ein Dienst im Internet
 - Dienst der Verteilung von Hypertext-Dokumenten (Webseiten)
 - 1989 von Tim Berners-Lee am CERN entwickelt mit dem Ziel Forschungsergebnisse mit Kollegen auszutauschen
-
-> [!info] WWW
-> The WorldWideWeb (W3) us a wide-area-hypermedia information retrieval initiative aiming to give universal access to a large universe of documents.
+##### WWW
+The WorldWideWeb (W3) us a wide-area-hypermedia information retrieval initiative aiming to give universal access to a large universe of documents.
 ### 1.4.1. Dokumente im Internet
 - Format: HTML (HyperText Markup Language)
 - Aktuell in Version 5 vom W3C standardisiert
@@ -56,8 +55,6 @@ Beispiele für Dienste im Internet und ihre Protokolle WWW (HTTP, HTTPS)
 ## 1.5. Domain name System (DNS)
 - Adressierung von Webseiten des WWW wird durch das Domain Name System (DNS) unterstützt
 - Hierarchischer Verzeichnisdienst
-
-![[IMG DB/Unbenannt.png]]
 ## 1.6. Verweise
 - Verknüpfungen von Inhalten und weiteren Webseiten (Hyperlinks) erfolgt mittels
 	- Uniform Ressource Identifier (URI)

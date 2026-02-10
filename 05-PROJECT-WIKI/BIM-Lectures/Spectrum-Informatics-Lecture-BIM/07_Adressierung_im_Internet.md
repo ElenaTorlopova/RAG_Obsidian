@@ -1,18 +1,20 @@
 ---
-title: 07_Adressierung_im_Internet
-date: 2025-10-13
-modified: 2025-12-22
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 07_Adressierung_im_Internet
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[07_Adressierung_im_Internet]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Adressierung im Internet (IPv4)
 - Die IP-Adresse ist eine 32 Bit-Adresse in Dezimaldarstellung als 4 Byte
@@ -20,8 +22,6 @@ relations:
 	  z.B. 137.226.76.1
 - Internetprovider teilt Adressblöcke zu je nach Zahl der Knoten
 - Kennzeichnung und Verwaltung durch NICs (Network Information Center)
-
-![[Pasted image 20251222233445.png]]
 
 Wir unterscheiden 3 Klassen von Netzen:
 - Class-A Adresse: A.x.x.x wobei 0<=A<127 A<>10
@@ -51,8 +51,6 @@ Wir unterscheiden 3 Klassen von Netzen:
 	- Netzmaske:
 		- Binär: 11111111.11111111.11111111.00000000
 		- Dezimal: 255.255.255.0
-
-![[Pasted image 20251222235253.png]]
 ## Multicasting
 - Multicasting bezeichnet das gleichzeitige Versenden von IP-Paketen an eine Gruppe von Zielrechnern
 - Die Verwaltung der zur Multicasting-Gruppe gehörenden Netzwerkknoten obliegt in TCP/IP dem Internet Group Management Protocol (IGMP)
@@ -66,15 +64,10 @@ Wir unterscheiden 3 Klassen von Netzen:
 	- computer.bereich.institution.land (.edu, .com, .net, .org)
 - Beispiel: tm09.tm.th-wildau.de
 - Die Auflösung der Domain-Namen erfolgt über einen DNS-Server (Domain Name Service), der die zu einem Namen zugehörige IP-Adresse zurückliefert
-
-![[Pasted image 20251223000739.png]]
 ## IP-Datagramm
 - Die Dateneinheiten des Internet-Protokolls bezeichnet man als IP-Datagramme
 - Sie werden in die Dateneinheiten der unterliegenden Netzwerkschichten (z.B. Ethernet-Frames) verpackt und übertragen
 - Ein IP-Datagramm Header der IPv4 hat ohne Optionen die Länge von 20 Byte und umfasst 12 Steuerfelder
-
-![[Pasted image 20251223000950.png]]
-
 - Version: Gibt die Versionsnummer des verwendeten IP-Standards an
 - IHL (Internet Header Length): Enthält die Anzahl der Doppelwerte, aus denen sich der IP-Header inklusive Optionen zusammensetzt (normal 5)
 - Type of Service: Spezifiziert Qualitätsanforderungen (z.B. maximaler Durchsatz, minimale Verzögerung), Umsetzung erfolgte nicht im gesamten Internet

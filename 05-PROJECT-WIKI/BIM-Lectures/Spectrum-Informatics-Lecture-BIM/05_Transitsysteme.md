@@ -1,44 +1,34 @@
 ---
-title: 05_Transitsysteme
-date: 2025-10-13
-modified: 2025-12-20
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 05_Transitsysteme
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[05_Transitsysteme.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Repeater/Hubs
 - Zur Kopplung von Netzwerken auf der Schicht 1 werden Repeater oder Hubs (Sternkoppler) eingesetzt
 - Ein Repeater dient zur Regeneration und Verstärkung von Signalen
 - Ein Hub koppelt zusätzlich noch mehrere Endsysteme sternförmig zu einem Netz
-
-![[Screenshot 2025-10-16 172037.png]]
 ## Bridges
 - Bridges koppeln Netzwerke auf Schicht 2 und leiten datenpunkte von einem Netz in das andere
 - Es werden sowohl homogene Netze (IEEE 802.x mit IEEE 802.x), als auch heterogene Netze (IEEE 802.x mit IEEE 802.y, $x\neq y$) gekoppelt
-
-![[Pasted image 20251016172448.png]]
 ## Transparente, lernende Bridges
-
-![[Pasted image 20251016172531.png]]
-
 - Problematisch ist die Existenz von redundanten Wegen zwischen Netzen, da durch die Broadcast-Weiterleitung endlos kreisende Pakete entstehen würden.
 - Daher wird eine logische Baumstruktur über alle Bridges der involvierte Netzwerke gebildet. Verbreitet wird der z.B. Spannbaum Algorithmus benutzt.
-
-![[Pasted image 20251016172754.png]]
-
 - Die Bridge mit der kleinsten Kennung wird zur Root-Bridge
 - Jede Bridge bestimmt den kostengünstigen Pfad zur Root-Bridge
 - Für jedes LAN wird bestimmt, welche Bridge den günstigen Root-Anschluss besitzt
-
-![[Pasted image 20251016172914.png]]
 ## Router
 - Router koppeln Netzwerke auf ISO Schicht 3
 - Sie ermöglichen die Kommunikation entfernter Endsysteme
@@ -76,8 +66,6 @@ relations:
 - Distance-Vector-Algorithmus: Ein verteiltes, adaptives Verfahren; jeder Router verwaltet eine Tabelle mit den kürzestem Wegen (Hop-Counts). Langsame Adaption bei Ausfall von Routern.
 - Link-Status-Algorithmus: Nachbarrouter testen aktiv Verbindung mit Informationen und errechnen selbst z.B. Verzögerung und Kosten zu jedem Nachbarn. nach diesen Informationen wird der beste Pfad ausgewählt.
 ## Distance-Vector-Algorithmus
-
-![[Pasted image 20251016175344.png]]
 ## Anforderungen an Routing-Protokolle
 - Kosten der Routen müssen bekannt gemacht werden
 - Mehr als eine Route zwischen zwei Netzen muss möglich sein

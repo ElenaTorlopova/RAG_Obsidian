@@ -1,18 +1,20 @@
 ---
-title: 10_Kollisionserkennung und -vermeidung
-date: 2025-10-13
-modified: 2025-12-24
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 10_Kollisionserkennung und -vermeidung
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[10_Kollisionserkennung_und_-vermeidung.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Kollisionserkennung/ -vermeidung
 - Bei einem unkontrollierten und zufälligen Zugriff auf ein geteiltes Medium können Kollisionen der gesendeten Nachrichten auftreten
@@ -27,8 +29,6 @@ relations:
 - Sie bestimmen individuell mittels eines Zufallszahlengenerators den nächsten Sendezeitpunkt
 - Im Aloha-System liegt die Wiederholungszeit zwischen 200 und 1500 ms
 - Die maximale Auslastung bei des Mediums bei diesem Verfahren liegt bei 18%
-
-![[Pasted image 20251224154145.png]]
 ## Slotted Aloha-Verfahren
 - Eine wesentliche Verbesserung des Aloha-Verfahrens ergibt sich, wenn man das Kollisionsfenster für Datenpakete verkleinert
 - Dies wird erreicht, indem man die Zeiten einschränkt, zu denen Pakete gesendet werden dürfen
@@ -36,8 +36,6 @@ relations:
 - Pakete können sich dann immer nur ganz oder gar nicht überlappen, aber niemals teilweise
 - Ist t die zur Übertragung eines Pakets notwendige Zeit, war beim reinen Aloha-Verfahren, das Kollisionsfenster 2t lang, beim Slotted Aloha-Verfahren nur noch t
 - Damit verdoppelt sich die maximale Auslastung des Mediums bei diesem Verfahren auf 36%
-
-![[Pasted image 20251224154514.png]]
 ## CSMA-Verfahren
 - Bei CSMA-Verfahren (Carrier Sense Multiple Access) hört eine Station vor dem Senden das Medium ab
 - Sie überträgt nur Daten, wenn sie festgestellt hat, dass das Medium nicht in Benutzung ist (listen before talk)
@@ -58,8 +56,6 @@ relations:
 	- Kollision bei $t_0+t_L-\epsilon$
 	- B erkennt Kollision bei $t_0+t_L$
 	- A erkennt Kollision bei $t_0+2(t_L-\epsilon)$
-
-![[Pasted image 20251224160050.png]]
 ## Mindestsendedauer
 - Soll eine Station die Kollision seines eigenen Signals mit einem anderen erkennen können, setzt dies eine Mindestsendedauer des Signals voraus
 - Diese Mindestlaufzeit errechnet sich aus der doppelten Signalverzögerung der am weitesten entfernten Stationen

@@ -1,20 +1,21 @@
 ---
-title: 11_Anwendungsschicht
-date: 2025-10-13
-modified: 2025-12-25
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 11_Anwendungsschicht
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[11_Anwendungsschicht.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
-![[Pasted image 20251225190643.png]]
 ## Dienste in der Anwendungsschicht
 - Computersysteme fernbedienen über das Internet (telnet)
 - Fernbedienen mit verschlüsselter Datenübertragung (ssh=secure shell)
@@ -24,8 +25,6 @@ relations:
 - Plaudern im Internet (chat)
 - WWW (word wide web)
 - Alle Dienste der Anwendungsschicht benutzen eigene - auf TCP/IP aufgesetzte - Protokolle, um ihre Dienstleistungen zu erbringen
-
-![[Pasted image 20251225191013.png]]
 ## Telnet
 ### Computersysteme fernbedienen (telnet)
 - Entfernte Computersysteme fernsteuern
@@ -35,12 +34,8 @@ relations:
 ### Sichere Alternative: Secure Shell (ssh)
 - Es dient ebenfalls zur Fernbedienung
 - Zwischen Transport- und Anwendungsschicht wird ein Security Layer eingefügt, der alle Daten verschlüsselt überträgt
-
-![[Pasted image 20251225191313.png]]
 ## FTP
 ### Dateien übertragen im Internet (ftp)
-
-![[Pasted image 20251225191351.png]]
 ## E-Mail
 ### Elektronische Post im Internet
 - Protokoll: SMTP (simple mail transport protocol)
@@ -83,7 +78,3 @@ relations:
 - Bei der Abfrage eines News-Servers wird Port 119 genutzt
 - Auch bei der Kommunikation über UDP werden Ports als abstrakte Zielpunkte genutzt
 - Listen der TCP- und UDP-Ports findet man im Internet
-## Well-Knows Ports
-Ein Überblick über die bekanntesten Well-Known TCP-Ports:
-
-![[Pasted image 20251225193033.png]]

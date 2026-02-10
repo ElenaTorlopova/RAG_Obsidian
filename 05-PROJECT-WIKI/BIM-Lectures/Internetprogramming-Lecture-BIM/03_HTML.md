@@ -1,20 +1,22 @@
 ---
-title: 03_HTML
-date: 2026-01-03
-modified: 2026-01-03
-tags:
-  - master
-origin: "[[BIBLIOTHEKSINFORMATIK]]"
-sources:
+dcterms:title: 03_HTML
+dcterms:contributor:
   - "[[Marcel-Dominique Block]]"
-  - "[[03_html.htm]]"
-language: german
-file-format: markdown (.md)
-note-type: lecture
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Web Development]]"
+  - "[[HTML]]"
+dcterms:isPartOf:
+  - "[[Internetprogramming-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
-# <u>3. HTML</u>
+# 3. HTML
 - HTML ist die HyperText Markup Language
 - Es handelt sich um eine Auszeichnungssprache, die die logischen Bestandteile eines Dokuments beschreibt
 - Das Beschreibungsschema ist hierarchisch gegliedert
@@ -35,7 +37,6 @@ relations:
 - HTML-Elemente werden durch Tags markiert
 - Fast alle Elemente haben ein einleitendes und ein abschließendes Tag. Dazwischen liegt der Gültigkeitsbereich des entsprechenden Elements.
 ## HTML Dokument
-![[html_doc_structure.png]]
 ### Aufbau eines HTML-Dokuments
 - Eine HTML Datei besteht gewöhnlich aus drei Teilen:
 	- der Dokumenttyp-Angabe (verwendete HTML-Version)
@@ -210,8 +211,6 @@ relations:
 - Die Farbe wird aus den Grundfarben Rot, Grün und Blau zusammengesetzt
 	- Helligkeitswerte zwischen 0 und 255
 	- Darstellung erfolgt hexadezimal
-
-![[rgb.png]]
 #### Beispiel:
 ```html
 <!-- dunkelgrauer Dateihintergrund -->

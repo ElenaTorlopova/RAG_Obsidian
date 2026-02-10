@@ -1,18 +1,20 @@
 ---
-title: 02_Internet
-date: 2025-10-13
-modified: 2025-12-18
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 02_Internet
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[02_Internet.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Was bedeutet "Internet"?
 - Globales Netzwerk aus Rechnersystemen, die selbst wieder Netzwerke darstellen können
@@ -22,8 +24,6 @@ relations:
 ## Client-Server-Architektur
 - Ein Server bietet einen Dienst über eine definierte Schnittstelle an. Er antwortet auf Anfragen synchron (innerhalb eines bestimmten Zeitintervalls).
 - Ein Client stellt asynchron (zu einem beliebigen Zeitpunkt) Anfragen an den Server
-
-![[Pasted image 20251014065050.png|500]]
 ## Netzwerk-Nodes
 Die Geräte eines Netzwerks können in zwei Gruppen aufgeteilt werden:
 - Solche, die Informationen erzeugen und verarbeiten (Endsysteme, End-Host)

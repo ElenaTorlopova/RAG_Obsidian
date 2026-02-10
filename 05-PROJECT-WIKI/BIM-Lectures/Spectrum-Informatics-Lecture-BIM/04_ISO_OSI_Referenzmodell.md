@@ -1,18 +1,20 @@
 ---
-title: 04_ISO_OSI_Referenzmodell
-date: 2025-10-13
-modified: 2025-12-18
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 04_ISO_OSI_Referenzmodell
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[04_ISO_OSI_Referenzmodell.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Organization
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## Referenzmodelle
 - ISO/OSI
@@ -24,8 +26,6 @@ relations:
 	- TCP/IP is Protokollgrundlage des Internets
 ## ISO/OSI Referenzmodell
 Das ISO/OSI Schichtenmodell besteht aus 7 Schichten und gilt als Referenz für die Kommunikationstechnik:
-
-![[Pasted image 20251015213100.png]]
 ### Bitübertragung/Physical Layer
 - Die unterste Schicht des ISO Referenzmodells
 - Sie definiert die mechanischen, elektronischen und funktionalen Charakteristiken einer realen Leitung
@@ -58,5 +58,3 @@ Das ISO/OSI Schichtenmodell besteht aus 7 Schichten und gilt als Referenz für d
 - Sie besitzt als oberste Schicht keine Dienstzugangspunkte
 - Sie liefert Kommunikationsdienste für Anwendungsinstanzen innerhalb der gleichen Schicht (Anwendungsassoziationen)
 - Enthält von Anwendungen genutzte Protokolle. Sie ist die einzige Möglichkeit für Anwendungen, auf das Netzwerk zuzugreifen
-### OSI-Referenzmodell
-![[Pasted image 20251015214616.png]]

@@ -1,24 +1,23 @@
 ---
-title: 06_TCP_IP
-date: 2025-10-13
-modified: 2025-12-22
-tags:
-  - master
-origin: "[[Spektrum_Informatik]]"
-sources:
+dcterms:title: 06_TCP_IP
+dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
-  - "[[06_TCP_IP.pdf]]"
-language: german
-note-type: lecture
-file-format: markdown (.md)
-relations:
-  - "[[Technische Hochschule Wildau]]"
+dcterms:created: 2026-02-01
+dcterms:modified: 2026-02-01
+dcterms:subjects:
+  - "[[Informatics]]"
+  - "[[Internet]]"
+dcterms:isPartOf:
+  - "[[Spectrum_Informatics-Lecture-BIM25]]"
+dcterms:references:
+schem:language: german
+rdf:type: schema:Course
+schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalLevel: Master
+schema:provider: "[[Technische Hochschule Wildau]]"
 ---
 ## TCP/IP Schichtenarchitektur
 TCP/IP bildet die 7 OSI Schichten auf 4 Schichten ab:
-
-![[Pasted image 20251017193209.png]]
-
 - Nicht an Hersteller gebunden
 - Sowohl auf PCs als auch auf Hochleistungsrechnern implementiert
 - Kann für LAN und WLANs verwendet werden
@@ -48,17 +47,12 @@ TCP/IP bildet die 7 OSI Schichten auf 4 Schichten ab:
 - etc.
 ## TCP/IP Schichten und Protokolle
 
-![[Pasted image 20251017201125.png]]
 ## Einkapselung
 - Sendet einer Anwendung Daten über TCP/IP, so durchlaufen die Datenpunkte alle Schichten der Internet-Schichtenarchitektur auf Sender- und Empfängerseite
 - Beim Sender fügen die Protokollinstanzen jeder Schicht eine Art Umschlag genannt PDU (Protocol Data Unit) mit einem Header hinzu. Jede neue PDU-Kapsel legt sich um die vorherige.
 - Auf der Empfängerseite werden die Umschläge von der zugehörigen Schicht wieder entfernt und die protokollspezifischen Headerinformationen ausgewertet
 - Die Informationen aus den PDUs teilen den Protokollen der einzelnen Schichten mit, was Sie mit den Daten machen sollten
-
-![[Pasted image 20251017201448.png]]
 ## Paket mit TCP/IP Protokoll
-
-![[Pasted image 20251017201523.png]]
 ## MAC-Adresse
 - Die MAC-Adresse ist eine feste Hardwareadresse, die jeder Netzwerkkarte in einer Netzwerkkomponente zugewiesen ist
 - Jede Komponente erhält eine einmalige 48-Bit Kennung, die MAC-Adresse
