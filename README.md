@@ -20,8 +20,8 @@ Welcome to the RAG Obsidian Project. Here we want to learn how to utilize RAG fo
 		- [ ] Themen 4-8 + 3.2 ([[Patryk Gadziomski]])
 		- [ ] [[Patryk Gadziomski]] --> Paper lesen
 4. Bis 8.-15.02
-	- [ ] Technische Umsetzung (V. 1.0) ([[Patryk Gadziomski]])
+	- [x] Technische Umsetzung (V. 1.0) ([[Patryk Gadziomski]])
 	- [ ] Datenaufbereitung ([[Elena Torlopova]] & [[Patryk Gadziomski]])
-		- [ ] Converter Skript erstellen [[Patryk Gadziomski]]
+		- [x] Converter Skript erstellen [[Patryk Gadziomski]]
 	- [ ] Technische Umsetzung (V. 2.0) [[Patryk Gadziomski]]
 
