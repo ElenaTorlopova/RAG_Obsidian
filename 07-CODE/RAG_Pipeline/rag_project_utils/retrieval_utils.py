@@ -25,7 +25,14 @@ def retrieve_docs(question: str, k: int, vectorstore):
 @traceable(run_type="retriever", name="Chroma Retriever")
 def retrieve_docs_V2(question: str, k: int, vectorstore, keyword_weight: float = 0.3):
     # 1. Standard-Semantische Suche
-    raw_docs = vectorstore.similarity_search(question, k=k * 2)  # Mehr Docs holen für Re-Ranking
+    # raw_docs = vectorstore.similarity_search(question, k=k * 2)
+
+    raw_docs = vectorstore.max_marginal_relevance_search(
+        question,
+        k=k,              # finale Anzahl Chunks
+        fetch_k=k * 2,    # dein bisheriger k*2 Kandidaten-Pool bleibt gleich
+        lambda_mult=0.7
+    )
 
     # 2. Re-Ranking mit Keywords (wenn vorhanden)
     scored_docs = []
