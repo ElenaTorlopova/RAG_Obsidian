@@ -1,0 +1,1 @@
+Mit dem Projekt zeigt man auch die Möglichkeiten, wenn die Daten in einem Unternehmen als Textdaten bzw. Md strukturiert werden und nicht PDF oder ähnliches, da es maschinenlesbar wird.
