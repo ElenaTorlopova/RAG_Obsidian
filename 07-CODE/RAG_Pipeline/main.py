@@ -25,7 +25,7 @@ client = OpenAI(
 
 system_prompt = rag_ph.read_system_prompt(r'C:\Users\gadzi\Documents\GitHub\RAG_Obsidian\07-CODE\RAG_Pipeline\prompts\system_prompt.txt')
 
-question = """Was ist KI und wer könnte darüber mehr wissen? In welchem Studiengang kommt das Thema vor?
+question = """Was ist KI und wer könnte darüber mehr wissen?
 WICHTIG:
 - Nenne nur zusätzliche Daten, die explizit in den Metadaten genannt sind.
 - Wenn keine passenden Metadaten vorhanden ist, sage: "Es ist keine konkrete Informationen bekannt."
@@ -83,9 +83,9 @@ Antwort:
 if __name__ == '__main__':
     # -------- 1. Load & Split --------
     docs = rag_dh.load_md_data(file_path)
-    splits = rag_dp.text_splitter(docs)
+    splits = rag_dp.text_basic_splitter(docs)
     # -------- 2. Embeddings & Vector Store --------
     embeddings = rag_dp.create_embeddings(embedding_model)
-    vecstore = rag_dh(splits, embeddings, "./chroma_bim_db")
+    vecstore = rag_dh.create_vecstore(splits, embeddings, "./chroma_bim_db")
     # -------- 3. RAG Funktionen & 4. Frage --------
-    answer = rag_query(vecstore, question)
+    answer = rag_query(vecstore, system_prompt, question)
