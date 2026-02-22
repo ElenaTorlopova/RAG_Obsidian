@@ -1,1 +1,5 @@
 .obsidian
+izm-test.py
+test_data_izm
+.env
+__pycache__
