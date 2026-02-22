@@ -32,5 +32,6 @@ schema:sameAs:
 tags:
   - fraunhofer
   - research
+  - Stuttgart
 context:
 ---

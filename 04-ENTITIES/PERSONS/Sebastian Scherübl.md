@@ -1,37 +1,36 @@
 ---
-dcterms:title: M. Eng. Janine Breßler
+dcterms:title: Sebastian Scherübl
 rdf:type: foaf:Person
-foaf:givenName: Janine
-foaf:familyName: Breßler
-foaf:name: Janine Breßler
-schema:hasCredential: "[[M. Eng.]]"
+foaf:givenName: Sebastian
+foaf:familyName: Scherübl
+foaf:name: Sebastian Scherübl
+schema:hasCredential:
 foaf:birthday:
-foaf:mbox: janine.breßler@th-wildau.de
+foaf:mbox: sebastian.scheruebl@th-wildau.de
 foaf:phone:
 tags:
   - person
-  - artificial_inteligence
 schema:knows:
-  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
-  - "[[Elena Torlopova]]"
   - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
   - "[[Annabell Huwig]]"
   - "[[Beata Lakeberg]]"
   - "[[Christin Seegert]]"
   - "[[Claus Werner]]"
+  - "[[Elena Torlopova]]"
   - "[[Hiromi Ohshimo]]"
   - "[[Kamil Jaworski]]"
   - "[[Klaus Prinz]]"
+  - "[[M. Eng. Janine Breßler]]"
   - "[[Martina Schildt]]"
-  - "[[Sebastian Scherübl]]"
+  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
 schema:colleague:
 schema:affiliation:
   - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
-  - "[[Technische Hochschule Wildau]]"
 schema:memberOf:
+  - "[[xrBibliotheksguide]]"
+  - "[[BibInfo25]]"
 schema:worksFor:
-  - "[[Technische Hochschule Wildau]]"
-foaf:img:
+  - "[[Universitätsbibliothek der Technischen Universität München (TUM)]]"
 ---

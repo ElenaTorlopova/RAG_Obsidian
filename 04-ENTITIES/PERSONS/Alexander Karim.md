@@ -1,21 +1,19 @@
 ---
-dcterms:title: M. Eng. Janine Breßler
+dcterms:title: Alexander Karim
 rdf:type: foaf:Person
-foaf:givenName: Janine
-foaf:familyName: Breßler
-foaf:name: Janine Breßler
-schema:hasCredential: "[[M. Eng.]]"
+foaf:givenName: Alexander
+foaf:familyName: Karim
+foaf:name: Alexander Karim
+schema:hasCredential:
 foaf:birthday:
-foaf:mbox: janine.breßler@th-wildau.de
+foaf:mbox: alexander_samir_riad.gad_el-karim@th-wildau.de
 foaf:phone:
 tags:
   - person
-  - artificial_inteligence
 schema:knows:
-  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
-  - "[[Elena Torlopova]]"
-  - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
+  - "[[Elena Torlopova]]"
+  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Annabell Huwig]]"
   - "[[Beata Lakeberg]]"
   - "[[Christin Seegert]]"
@@ -23,15 +21,18 @@ schema:knows:
   - "[[Hiromi Ohshimo]]"
   - "[[Kamil Jaworski]]"
   - "[[Klaus Prinz]]"
+  - "[[M. Eng. Janine Breßler]]"
   - "[[Martina Schildt]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
+  - "[[Martina Schildt]]"
+  - "[[Christin Seegert]]"
 schema:affiliation:
   - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
-  - "[[Technische Hochschule Wildau]]"
 schema:memberOf:
+  - "[[DatenPlus]]"
+  - "[[BibInfo25]]"
 schema:worksFor:
-  - "[[Technische Hochschule Wildau]]"
-foaf:img:
+  - "[[Verbundzentrale des GBV (VZG)]]"
 ---
