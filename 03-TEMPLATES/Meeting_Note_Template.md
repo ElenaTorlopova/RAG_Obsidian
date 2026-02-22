@@ -1,17 +1,12 @@
 ---
 dcterms:title:
-schema:author:
-dcterms:contributor:
+schema:contributor:
 dcterms:created:
 dcterms:modified:
-schema:about:
 dcterms:subjects:
-tags:
-  - meeting
+  - "[[Meeting]]"
 dcterms:isPartOf: vault:RAG_Obsidian
 dcterms:references:
-content:
-foaf:primaryTopic:
 geo:lat:
 geo:long:
 geo:location:
