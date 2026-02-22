@@ -12,19 +12,6 @@ tags:
   - person
 schema:knows:
   - "[[00-NETWORK/DB/Elena Torlopova]]"
-  - "[[Anja Jungbluth]]"
-  - "[[Alexander Karim]]"
-  - "[[Annabell Huwig]]"
-  - "[[Beata Lakeberg]]"
-  - "[[Christin Seegert]]"
-  - "[[Claus Werner]]"
-  - "[[Elena Torlopova]]"
-  - "[[Hiromi Ohshimo]]"
-  - "[[Kamil Jaworski]]"
-  - "[[Klaus Prinz]]"
-  - "[[M. Eng. Janine Breßler]]"
-  - "[[Martina Schildt]]"
-  - "[[Sebastian Scherübl]]"
 schema:colleague:
   - "[[Alexandra Rydz]]"
 schema:affiliation:

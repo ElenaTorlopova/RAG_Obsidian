@@ -1,37 +1,36 @@
 ---
-dcterms:title: M. Eng. Janine Breßler
+dcterms:title: Hiromi Ohshimo
 rdf:type: foaf:Person
-foaf:givenName: Janine
-foaf:familyName: Breßler
-foaf:name: Janine Breßler
-schema:hasCredential: "[[M. Eng.]]"
+foaf:givenName: Hiromi
+foaf:familyName: Ohshimo
+foaf:name: Hiromi Ohshimo
+schema:hasCredential:
 foaf:birthday:
-foaf:mbox: janine.breßler@th-wildau.de
+foaf:mbox: hiromi.ohshimo@th-wildau.de
 foaf:phone:
 tags:
   - person
-  - artificial_inteligence
 schema:knows:
-  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
-  - "[[Elena Torlopova]]"
   - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
   - "[[Annabell Huwig]]"
   - "[[Beata Lakeberg]]"
   - "[[Christin Seegert]]"
   - "[[Claus Werner]]"
-  - "[[Hiromi Ohshimo]]"
+  - "[[Elena Torlopova]]"
   - "[[Kamil Jaworski]]"
   - "[[Klaus Prinz]]"
+  - "[[M. Eng. Janine Breßler]]"
   - "[[Martina Schildt]]"
+  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
 schema:affiliation:
   - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
-  - "[[Technische Hochschule Wildau]]"
 schema:memberOf:
+  - "[[DatenPlus]]"
+  - "[[BibInfo25]]"
 schema:worksFor:
-  - "[[Technische Hochschule Wildau]]"
-foaf:img:
+  - "[[Staatsbibliothek zu Berlin]]"
 ---

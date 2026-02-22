@@ -25,7 +25,7 @@ ein Ansatz, der den Prinzipien der [Linked Data](https://en.wikipedia.org/wiki/L
 #### Das Ziel des Projekts ist es, ein RAG-System zu implementieren, das:
 1. Semantisch relevante Dokumente aus dem Vault extrahiert (Retrieval), basierend auf natürlichsprachlichen Anfragen
 2. Zusammenhänge zwischen verlinkten Notizen nutzt, um kontextreiche Antworten zu generieren (Generation)
-3. Daten nach Kontext trennen kann (akademisch vs. beruflich); optional über Tags, um die Relevanz zu steuern
+	1. Daten nach Kontext trennen kann (akademisch vs. beruflich); optional über Tags, um die Relevanz zu steuern
 ### Motivation:
 Persönliche Faszination für Personal Knowledge Management und die Strukturierung von Wissen
 durch Verlinkung. Dazu kommt mein Interesse an der praktischen Anwendung moderner KI-

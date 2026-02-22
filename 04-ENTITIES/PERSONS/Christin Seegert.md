@@ -1,37 +1,38 @@
 ---
-dcterms:title: M. Eng. Janine Breßler
+dcterms:title: Christin Seegert
 rdf:type: foaf:Person
-foaf:givenName: Janine
-foaf:familyName: Breßler
-foaf:name: Janine Breßler
-schema:hasCredential: "[[M. Eng.]]"
+foaf:givenName: Christin
+foaf:familyName: Seegert
+foaf:name: Christin Seegert
+schema:hasCredential:
 foaf:birthday:
-foaf:mbox: janine.breßler@th-wildau.de
+foaf:mbox: christin.seegert@th-wildau.de
 foaf:phone:
 tags:
   - person
-  - artificial_inteligence
 schema:knows:
-  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
-  - "[[Elena Torlopova]]"
   - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
   - "[[Annabell Huwig]]"
   - "[[Beata Lakeberg]]"
-  - "[[Christin Seegert]]"
   - "[[Claus Werner]]"
+  - "[[Elena Torlopova]]"
   - "[[Hiromi Ohshimo]]"
   - "[[Kamil Jaworski]]"
   - "[[Klaus Prinz]]"
+  - "[[M. Eng. Janine Breßler]]"
   - "[[Martina Schildt]]"
+  - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
+  - "[[Alexander Karim]]"
+  - "[[Martina Schildt]]"
 schema:affiliation:
   - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
-  - "[[Technische Hochschule Wildau]]"
 schema:memberOf:
+  - "[[DatenPlus]]"
+  - "[[BibInfo25]]"
 schema:worksFor:
-  - "[[Technische Hochschule Wildau]]"
-foaf:img:
+  - "[[Verbundzentrale des GBV (VZG)]]"
 ---

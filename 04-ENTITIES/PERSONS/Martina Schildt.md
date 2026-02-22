@@ -1,16 +1,15 @@
 ---
-dcterms:title: M. Eng. Janine Breßler
+dcterms:title: Martina Schildt
 rdf:type: foaf:Person
-foaf:givenName: Janine
-foaf:familyName: Breßler
-foaf:name: Janine Breßler
-schema:hasCredential: "[[M. Eng.]]"
+foaf:givenName: Martina
+foaf:familyName: Schildt
+foaf:name: Martina Schildt
+schema:hasCredential:
 foaf:birthday:
-foaf:mbox: janine.breßler@th-wildau.de
+foaf:mbox: martina.schildt@th-wildau.de
 foaf:phone:
 tags:
   - person
-  - artificial_inteligence
 schema:knows:
   - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Elena Torlopova]]"
@@ -23,15 +22,18 @@ schema:knows:
   - "[[Hiromi Ohshimo]]"
   - "[[Kamil Jaworski]]"
   - "[[Klaus Prinz]]"
-  - "[[Martina Schildt]]"
+  - "[[M. Eng. Janine Breßler]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
+  - "[[Christin Seegert]]"
+  - "[[Alexander Karim]]"
 schema:affiliation:
   - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
-  - "[[Technische Hochschule Wildau]]"
 schema:memberOf:
+  - "[[DatenPlus]]"
+  - "[[BibInfo25]]"
+  - "[[Folio]]"
 schema:worksFor:
-  - "[[Technische Hochschule Wildau]]"
-foaf:img:
+  - "[[Verbundzentrale des GBV (VZG)]]"
 ---
