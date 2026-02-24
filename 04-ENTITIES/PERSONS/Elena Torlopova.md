@@ -25,6 +25,12 @@ schema:knows:
   - "[[Martina Schildt]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
+  - "[[Dipl.-Wi.-Ing. Sebastian Stegmüller]]"
+  - "[[Dr. Matthias Peissner]]"
+  - "[[Dr.-Ing. Moritz Hämmerle]]"
+  - "[[Dr.-Ing. Stefan Rief]]"
+  - "[[Prof. Dr.-Ing. Vanessa Borkmann]]"
+  - "[[Thomas Renner]]"
 schema:affiliation:
   - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
@@ -35,7 +41,7 @@ schema:memberOf:
   - "[[DatenPlus]]"
   - "[[BibInfo25]]"
 schema:worksFor:
-  - "[[Das Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
-  - "[[Gottfried Wilhelm Leibniz Bibliothek –\rNiedersächsische Landesbibliothek]]"
+  - "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
+  - "[[Gottfried Wilhelm Leibniz Bibliothek –  Niedersächsische Landesbibliothek]]"
 foaf:img:
 ---
