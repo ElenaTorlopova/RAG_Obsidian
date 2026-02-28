@@ -1,0 +1,28 @@
+# LangChain – aufgeteilt in separate Pakete seit v0.2
+langchain-core>=0.3.0          # Basisklassen: Runnable, PromptTemplate, etc.
+langchain-community>=0.3.0     # Drittanbieter-Integrationen
+langchain-openai>=0.2.0        # ChatOpenAI (für KISSKI-kompatiblen Endpunkt)
+langchain-chroma>=0.1.0        # ChromaDB-Integration
+langchain-huggingface>=0.1.0   # Lokale Sentence-Transformer-Embeddings
+
+# HINWEIS: Das Paket "langchain" (ohne Suffix) wird NICHT mehr benötigt.
+# langchain.chains und langchain.schema existieren in neuen Versionen nicht mehr.
+# Alles kommt jetzt aus langchain_core, langchain_community, etc.
+
+# Vektorstore
+chromadb>=0.5.0
+
+# Embeddings (lokal, kein API-Key)
+sentence-transformers>=3.0.0
+torch>=2.0.0                   # CPU reicht; für GPU: torch+cu118 o.ä.
+
+# Graph
+networkx>=3.3
+
+# LangSmith Tracing
+langsmith>=0.1.0
+
+# Utilities
+pyyaml>=6.0
+python-dotenv>=1.0.0
+langchain-text-splitters>=0.3.0     # RecursiveCharacterTextSplitter
