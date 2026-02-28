@@ -16,12 +16,12 @@ Welcome to the RAG Obsidian Project. Here we want to learn how to utilize RAG fo
 		- [x] Datenschemata festlegen
 3. Bis 20.02.2026
 	- [ ] Präsentation erstellen
-		- [ ] Themen 1-3 + 5.1 ([[Elena Torlopova]])
+		- [x] Themen 1-3 + 5.1 ([[Elena Torlopova]])
 		- [ ] Themen 4-8 + 3.2 ([[Patryk Gadziomski]])
 		- [x] [[Patryk Gadziomski]] --> Paper lesen
 4. Bis 8.-15.02
 	- [x] Technische Umsetzung (V. 1.0) ([[Patryk Gadziomski]])
-	- [ ] Datenaufbereitung ([[Elena Torlopova]] & [[Patryk Gadziomski]])
+	- [x] Datenaufbereitung ([[Elena Torlopova]] & [[Patryk Gadziomski]])
 		- [x] Converter Skript erstellen [[Patryk Gadziomski]]
 	- [ ] Technische Umsetzung (V. 2.0) [[Patryk Gadziomski]]
 
