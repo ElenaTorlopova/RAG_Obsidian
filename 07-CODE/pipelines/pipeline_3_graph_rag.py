@@ -26,7 +26,6 @@ import networkx as nx
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_core.prompts import PromptTemplate
-from langsmith import traceable
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
@@ -74,7 +73,7 @@ class GraphRAGPipeline:
     """
 
     def __init__(self):
-        self.llm        = get_llm(run_name=PIPELINE_TAG)
+        self.llm        = get_llm()
         self.embeddings = get_embeddings()
         self.vectorstore: Chroma | None = None
         self.graph: nx.DiGraph = nx.DiGraph()
@@ -337,7 +336,6 @@ class GraphRAGPipeline:
     # Query
     # ------------------------------------------------------------------
 
-    @traceable(name="graph_rag_query", tags=[PIPELINE_TAG])
     def query(self, question: str, hop_depth: int = GRAPH_HOP_DEPTH) -> dict:
         """
         GraphRAG-Query: Vektorsuche + Graph-Traversal + LLM.

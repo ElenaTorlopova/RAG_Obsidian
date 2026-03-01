@@ -3,29 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knowledge Graph Visualizer</title>
+<title>CogniGraph</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #0a0e14;
-    --surface:   #111620;
-    --border:    #1e2a3a;
-    --accent:    #00d4ff;
-    --accent2:   #ff6b35;
-    --accent3:   #7fff6b;
-    --text:      #c8d8e8;
-    --text-dim:  #4a6070;
-    --panel-w:   320px;
+    --bg:        #000000;
+    --surface:   #0a0a0a;
+    --border:    #1f1f1f;
+    --accent:    #b8f04a;
+    --text:      #b8f04a;
+    --text-dim:  #4a5a30;
+    --text-muted:#2a3a1a;
+    --panel-w:   300px;
 
-    /* Node-Typ-Farben */
-    --col-course:  #00d4ff;
-    --col-person:  #ff6b35;
-    --col-org:     #7fff6b;
-    --col-article: #c084fc;
-    --col-default: #607080;
-    --col-literal: #2a3a4a;
+    /* Node-Typ-Farben — alle Variationen des Lime-Grün */
+    --col-course:  #b8f04a;
+    --col-person:  #8acc30;
+    --col-org:     #d4f87a;
+    --col-article: #6ab020;
+    --col-default: #3a5a18;
+    --col-literal: #1a2a0a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,7 +32,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
     overflow: hidden;
     height: 100vh;
@@ -42,60 +41,61 @@
   /* ── Top Bar ── */
   #topbar {
     position: fixed; top: 0; left: 0; right: 0;
-    height: 48px;
-    background: var(--surface);
+    height: 44px;
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: center; gap: 16px;
     padding: 0 20px;
     z-index: 100;
   }
   #topbar h1 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
     white-space: nowrap;
   }
-  #topbar .sep { width: 1px; height: 20px; background: var(--border); }
+  #topbar .sep { width: 1px; height: 16px; background: var(--border); }
 
   #load-btn {
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    padding: 6px 14px;
-    font-family: 'IBM Plex Mono', monospace;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    font-family: 'DM Mono', monospace;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-weight: 400;
+    letter-spacing: 0.03em;
     cursor: pointer;
-    transition: opacity .15s;
+    transition: border-color .2s, color .2s;
+    border-radius: 2px;
   }
-  #load-btn:hover { opacity: .8; }
+  #load-btn:hover { border-color: var(--accent); }
   #file-input { display: none; }
 
   #stats {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 11px;
     color: var(--text-dim);
   }
-  #stats span { color: var(--text); }
+  #stats span { color: var(--accent); }
 
   .search-wrap {
     margin-left: auto;
     display: flex; align-items: center; gap: 8px;
   }
   #search {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 5px 10px;
-    font-family: 'IBM Plex Mono', monospace;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+    padding: 4px 0;
+    font-family: 'DM Mono', monospace;
     font-size: 11px;
-    width: 200px;
+    width: 180px;
     outline: none;
-    transition: border-color .15s;
+    transition: border-color .2s;
   }
   #search:focus { border-color: var(--accent); }
   #search::placeholder { color: var(--text-dim); }
@@ -103,30 +103,27 @@
   /* ── Canvas ── */
   #canvas {
     position: fixed;
-    top: 48px; left: 0; right: var(--panel-w); bottom: 0;
+    top: 44px; left: 0; right: var(--panel-w); bottom: 0;
   }
   svg {
     width: 100%; height: 100%;
     background: var(--bg);
   }
 
-  /* Grid background */
-  svg::before { content: ''; }
-
   /* ── Edges ── */
   .link {
     stroke: var(--border);
-    stroke-opacity: .6;
+    stroke-opacity: .8;
     stroke-width: 1px;
     fill: none;
     transition: stroke .15s, stroke-opacity .15s;
   }
-  .link.highlighted { stroke: var(--accent); stroke-opacity: 1; stroke-width: 1.5px; }
-  .link.faded { stroke-opacity: .1; }
+  .link.highlighted { stroke: var(--accent); stroke-opacity: 0.7; stroke-width: 1.5px; }
+  .link.faded { stroke-opacity: .08; }
 
   .link-label {
     fill: var(--text-dim);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 9px;
     pointer-events: none;
     opacity: 0;
@@ -141,24 +138,24 @@
   /* ── Nodes ── */
   .node { cursor: pointer; }
   .node circle {
-    stroke-width: 1.5px;
+    stroke-width: 1px;
     transition: r .15s, opacity .15s;
   }
-  .node.faded circle { opacity: .15; }
-  .node.faded text  { opacity: .1; }
+  .node.faded circle { opacity: .1; }
+  .node.faded text  { opacity: .08; }
 
   .node text {
-    fill: var(--text);
+    fill: var(--text-dim);
     font-size: 10px;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
     pointer-events: none;
-    text-shadow: 0 0 8px var(--bg), 0 0 4px var(--bg);
   }
 
   /* ── Right Panel ── */
   #panel {
     position: fixed;
-    top: 48px; right: 0;
+    top: 44px; right: 0;
     width: var(--panel-w);
     bottom: 0;
     background: var(--surface);
@@ -169,35 +166,37 @@
   }
 
   .panel-section {
-    padding: 16px;
+    padding: 18px 16px;
     border-bottom: 1px solid var(--border);
   }
   .panel-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .1em;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--text-dim);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   /* Node detail */
   #node-id {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
     word-break: break-all;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    opacity: .6;
   }
   #node-label {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     margin-bottom: 4px;
-    color: #fff;
+    color: var(--accent);
+    letter-spacing: -0.01em;
   }
   #node-type {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 10px;
     color: var(--text-dim);
     margin-bottom: 12px;
@@ -205,35 +204,36 @@
 
   .edge-list { list-style: none; }
   .edge-list li {
-    padding: 6px 0;
+    padding: 7px 0;
     border-bottom: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
   }
   .edge-list li:last-child { border-bottom: none; }
   .edge-pred {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 9px;
-    color: var(--accent2);
+    color: var(--text-dim);
+    letter-spacing: .04em;
   }
   .edge-obj {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text);
     cursor: pointer;
-    text-decoration: underline;
-    text-decoration-color: var(--border);
+    opacity: .8;
   }
-  .edge-obj:hover { color: var(--accent); }
+  .edge-obj:hover { opacity: 1; color: var(--accent); }
 
   /* Legend */
   .legend-item {
     display: flex; align-items: center; gap: 8px;
     margin-bottom: 6px;
     font-size: 11px;
+    color: var(--text-dim);
   }
   .legend-dot {
-    width: 10px; height: 10px;
+    width: 8px; height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -245,62 +245,66 @@
     cursor: pointer;
   }
   .filter-item input { accent-color: var(--accent); cursor: pointer; }
-  .filter-item label { cursor: pointer; font-size: 11px; }
+  .filter-item label { cursor: pointer; font-size: 11px; color: var(--text-dim); }
 
   /* Controls */
   .ctrl-btn {
     background: transparent;
     border: 1px solid var(--border);
-    color: var(--text);
+    color: var(--text-dim);
     padding: 5px 10px;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 10px;
     cursor: pointer;
     transition: border-color .15s, color .15s;
     margin-right: 6px;
     margin-bottom: 6px;
+    border-radius: 2px;
   }
   .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
 
   /* Drop zone overlay */
   #dropzone {
     position: fixed;
-    top: 48px; left: 0; right: var(--panel-w); bottom: 0;
+    top: 44px; left: 0; right: var(--panel-w); bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 20px;
     pointer-events: none;
   }
   #dropzone.active {
     pointer-events: all;
-    background: rgba(0,212,255,.04);
-    border: 2px dashed var(--accent);
+    background: rgba(184,240,74,.02);
+    border: 1px dashed var(--text-dim);
   }
   .dz-icon {
-    font-size: 48px;
-    opacity: .3;
+    font-size: 32px;
+    opacity: .2;
+    color: var(--accent);
   }
   .dz-text {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
     color: var(--text-dim);
     text-align: center;
-    line-height: 1.8;
+    line-height: 2;
   }
-  .dz-text strong { color: var(--accent); display: block; font-size: 16px; margin-bottom: 4px; }
+  .dz-text strong { color: var(--accent); display: block; font-size: 14px; margin-bottom: 6px; font-weight: 400; }
 
   /* Scrollbar */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); }
 
   #empty-panel {
-    padding: 24px 16px;
+    padding: 20px 16px;
     color: var(--text-dim);
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 11px;
+    line-height: 1.8;
+    font-family: 'DM Mono', monospace;
+    opacity: .6;
   }
 </style>
 </head>
@@ -308,16 +312,16 @@
 
 <!-- Top Bar -->
 <div id="topbar">
-  <h1>⬡ Knowledge Graph</h1>
+  <h1>CogniGraph</h1>
   <div class="sep"></div>
   <button id="load-btn" onclick="document.getElementById('file-input').click()">
-    + JSON-LD laden
+    JSON-LD laden
   </button>
   <input type="file" id="file-input" accept=".jsonld,.json">
   <div class="sep"></div>
   <div id="stats">Knoten: <span id="stat-nodes">–</span> &nbsp; Kanten: <span id="stat-edges">–</span></div>
   <div class="search-wrap">
-    <input type="text" id="search" placeholder="Knoten suchen …">
+    <input type="text" id="search" placeholder="Suchen …">
   </div>
 </div>
 
@@ -325,12 +329,11 @@
 <div id="canvas">
   <svg id="svg"></svg>
   <div id="dropzone">
-    <div class="dz-icon">◈</div>
+    <div class="dz-icon">○</div>
     <div class="dz-text">
-      <strong>JSON-LD Datei laden</strong>
-      Klicke „+ JSON-LD laden" oder ziehe die Datei<br>
-      <code>chroma_db/knowledge_graph.jsonld</code><br>
-      hierher
+      <strong>JSON-LD laden</strong>
+      Datei hier ablegen oder „JSON-LD laden" klicken<br>
+      <code>knowledge_graph.jsonld</code>
     </div>
   </div>
 </div>
@@ -364,10 +367,10 @@
 
   <div class="panel-section">
     <div class="panel-label">Steuerung</div>
-    <button class="ctrl-btn" onclick="resetZoom()">⌖ Zurücksetzen</button>
-    <button class="ctrl-btn" onclick="toggleLabels()">⌸ Labels</button>
-    <button class="ctrl-btn" onclick="toggleLinkLabels()">⇢ Kanten-Labels</button>
-    <button class="ctrl-btn" onclick="reheat()">⟳ Neu anordnen</button>
+    <button class="ctrl-btn" onclick="resetZoom()">Zoom reset</button>
+    <button class="ctrl-btn" onclick="toggleLabels()">Labels</button>
+    <button class="ctrl-btn" onclick="toggleLinkLabels()">Kanten-Labels</button>
+    <button class="ctrl-btn" onclick="reheat()">Neu anordnen</button>
   </div>
 </div>
 
@@ -382,8 +385,8 @@ const TYPE_COLORS = {
   "Organization":        "var(--col-org)",
   "Article":             "var(--col-article)",
   "ScholarlyArticle":    "var(--col-article)",
-  "CreativeWork":        "#f4a261",
-  "Event":               "#e76f51",
+  "CreativeWork":        "#9ed838",
+  "Event":               "#c8f060",
 };
 
 function typeColor(typeUri) {
@@ -472,21 +475,6 @@ function initSvg() {
   d3.select(svgEl).selectAll("*").remove();
   const defs = d3.select(svgEl).append("defs");
 
-  // Grid pattern
-  defs.append("pattern")
-    .attr("id", "grid")
-    .attr("width", 40).attr("height", 40)
-    .attr("patternUnits", "userSpaceOnUse")
-    .append("path")
-      .attr("d", "M 40 0 L 0 0 0 40")
-      .attr("fill", "none")
-      .attr("stroke", "#1a2030")
-      .attr("stroke-width", "0.5");
-
-  d3.select(svgEl).insert("rect", ":first-child")
-    .attr("width", "100%").attr("height", "100%")
-    .attr("fill", "url(#grid)");
-
   // Arrow marker
   defs.append("marker")
     .attr("id", "arrow")
@@ -528,10 +516,10 @@ function render(data) {
   const h = svgEl.clientHeight;
 
   simulation = d3.forceSimulation(data.nodes)
-    .force("link", d3.forceLink(data.links).id(d => d.id).distance(120).strength(0.4))
-    .force("charge", d3.forceManyBody().strength(-300))
+    .force("link", d3.forceLink(data.links).id(d => d.id).distance(100).strength(0.4))
+    .force("charge", d3.forceManyBody().strength(-250))
     .force("center", d3.forceCenter(w / 2, h / 2))
-    .force("collide", d3.forceCollide(30));
+    .force("collide", d3.forceCollide(28));
 
   // Links
   linkSel = g.append("g").attr("class", "links")
@@ -565,11 +553,11 @@ function render(data) {
       .on("mouseout",  nodeOut);
 
   nodeG.append("circle")
-    .attr("r", d => d.isStub ? 5 : nodeRadius(d))
-    .attr("fill", d => d.isStub ? "var(--col-literal)" : typeColor(d.type))
-    .attr("fill-opacity", d => d.isStub ? 0.4 : 0.85)
-    .attr("stroke", d => d.isStub ? "var(--border)" : typeColor(d.type))
-    .attr("stroke-opacity", 0.6);
+    .attr("r", d => d.isStub ? 4 : nodeRadius(d))
+    .attr("fill", d => d.isStub ? "var(--col-literal)" : "transparent")
+    .attr("fill-opacity", d => d.isStub ? 0.3 : 0)
+    .attr("stroke", d => d.isStub ? "var(--text-dim)" : typeColor(d.type))
+    .attr("stroke-opacity", d => d.isStub ? 0.3 : 0.7);
 
   labelSel = nodeG.append("text")
     .attr("dy", d => nodeRadius(d) + 12)

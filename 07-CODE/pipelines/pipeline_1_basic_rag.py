@@ -9,7 +9,6 @@ from langchain_chroma import Chroma
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel
-from langsmith import traceable
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
@@ -43,7 +42,7 @@ def _format_docs(docs) -> str:
 class BasicRAGPipeline:
 
     def __init__(self):
-        self.llm        = get_llm(run_name=PIPELINE_TAG)
+        self.llm        = get_llm()
         self.embeddings = get_embeddings()
         self.vectorstore: Chroma | None = None
         self.retriever  = None
@@ -82,7 +81,6 @@ class BasicRAGPipeline:
         )
         self.chain = setup | PROMPT | self.llm | StrOutputParser()
 
-    @traceable(name="basic_rag_query", tags=[PIPELINE_TAG])
     def query(self, question: str) -> dict:
         if self.chain is None:
             raise RuntimeError("Pipeline nicht initialisiert.")
