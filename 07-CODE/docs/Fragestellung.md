@@ -1,0 +1,1 @@
+Wie kann die Integration von Linked Data-Prinzipien in ein RAG-basiertes Wissenserschließungssystem die semantische Genauigkeit und Beziehungsauflösung von Wissensabfragen im Vergleich zu rein textbasierten oder vektorisierten Ansätzen signifikant verbessern?

@@ -1,0 +1,16 @@
+{
+  "name": "rag-ld",
+  "version": "1.0.0",
+  "description": "RAG · Linked Data – Pipeline Vergleich",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev":   "electron . --inspect"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}
