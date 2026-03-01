@@ -16,9 +16,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from pipelines.pipeline_1_basic_rag import BasicRAGPipeline
+from pipelines.pipeline_1_basic_rag    import BasicRAGPipeline
 from pipelines.pipeline_2_metadata_rag import MetadataRAGPipeline
-from pipelines.pipeline_3_graph_rag import GraphRAGPipeline
+from pipelines.pipeline_3_graph_rag    import GraphRAGPipeline
 
 
 def build_pipelines() -> dict:
