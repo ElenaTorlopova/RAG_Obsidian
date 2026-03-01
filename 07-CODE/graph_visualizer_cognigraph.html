@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CogniGraph</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #000000;
+    --surface:   #0a0a0a;
+    --border:    #1f1f1f;
+    --accent:    #b8f04a;
+    --text:      #b8f04a;
+    --text-dim:  #4a5a30;
+    --text-muted:#2a3a1a;
+    --panel-w:   300px;
+
+    /* Node-Typ-Farben — alle Variationen des Lime-Grün */
+    --col-course:  #b8f04a;
+    --col-person:  #8acc30;
+    --col-org:     #d4f87a;
+    --col-article: #6ab020;
+    --col-default: #3a5a18;
+    --col-literal: #1a2a0a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  /* ── Top Bar ── */
+  #topbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 44px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px;
+    padding: 0 20px;
+    z-index: 100;
+  }
+  #topbar h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  #topbar .sep { width: 1px; height: 16px; background: var(--border); }
+
+  #load-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: border-color .2s, color .2s;
+    border-radius: 2px;
+  }
+  #load-btn:hover { border-color: var(--accent); }
+  #file-input { display: none; }
+
+  #stats {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  #stats span { color: var(--accent); }
+
+  .search-wrap {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 8px;
+  }
+  #search {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+    padding: 4px 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    width: 180px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  #search:focus { border-color: var(--accent); }
+  #search::placeholder { color: var(--text-dim); }
+
+  /* ── Canvas ── */
+  #canvas {
+    position: fixed;
+    top: 44px; left: 0; right: var(--panel-w); bottom: 0;
+  }
+  svg {
+    width: 100%; height: 100%;
+    background: var(--bg);
+  }
+
+  /* ── Edges ── */
+  .link {
+    stroke: var(--border);
+    stroke-opacity: .8;
+    stroke-width: 1px;
+    fill: none;
+    transition: stroke .15s, stroke-opacity .15s;
+  }
+  .link.highlighted { stroke: var(--accent); stroke-opacity: 0.7; stroke-width: 1.5px; }
+  .link.faded { stroke-opacity: .08; }
+
+  .link-label {
+    fill: var(--text-dim);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .15s;
+  }
+  .link-label.visible { opacity: 1; }
+
+  /* Arrowhead */
+  marker path { fill: var(--border); }
+  marker.hl path { fill: var(--accent); }
+
+  /* ── Nodes ── */
+  .node { cursor: pointer; }
+  .node circle {
+    stroke-width: 1px;
+    transition: r .15s, opacity .15s;
+  }
+  .node.faded circle { opacity: .1; }
+  .node.faded text  { opacity: .08; }
+
+  .node text {
+    fill: var(--text-dim);
+    font-size: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    pointer-events: none;
+  }
+
+  /* ── Right Panel ── */
+  #panel {
+    position: fixed;
+    top: 44px; right: 0;
+    width: var(--panel-w);
+    bottom: 0;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-section {
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  /* Node detail */
+  #node-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    word-break: break-all;
+    margin-bottom: 8px;
+    opacity: .6;
+  }
+  #node-label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  #node-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .edge-list { list-style: none; }
+  .edge-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .edge-list li:last-child { border-bottom: none; }
+  .edge-pred {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: .04em;
+  }
+  .edge-obj {
+    font-size: 12px;
+    color: var(--text);
+    cursor: pointer;
+    opacity: .8;
+  }
+  .edge-obj:hover { opacity: 1; color: var(--accent); }
+
+  /* Legend */
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Filter checkboxes */
+  .filter-item {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+  .filter-item input { accent-color: var(--accent); cursor: pointer; }
+  .filter-item label { cursor: pointer; font-size: 11px; color: var(--text-dim); }
+
+  /* Controls */
+  .ctrl-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 5px 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    border-radius: 2px;
+  }
+  .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Drop zone overlay */
+  #dropzone {
+    position: fixed;
+    top: 44px; left: 0; right: var(--panel-w); bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    pointer-events: none;
+  }
+  #dropzone.active {
+    pointer-events: all;
+    background: rgba(184,240,74,.02);
+    border: 1px dashed var(--text-dim);
+  }
+  .dz-icon {
+    font-size: 32px;
+    opacity: .2;
+    color: var(--accent);
+  }
+  .dz-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-align: center;
+    line-height: 2;
+  }
+  .dz-text strong { color: var(--accent); display: block; font-size: 14px; margin-bottom: 6px; font-weight: 400; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+
+  #empty-panel {
+    padding: 20px 16px;
+    color: var(--text-dim);
+    font-size: 11px;
+    line-height: 1.8;
+    font-family: 'DM Mono', monospace;
+    opacity: .6;
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div id="topbar">
+  <h1>CogniGraph</h1>
+  <div class="sep"></div>
+  <button id="load-btn" onclick="document.getElementById('file-input').click()">
+    JSON-LD laden
+  </button>
+  <input type="file" id="file-input" accept=".jsonld,.json">
+  <div class="sep"></div>
+  <div id="stats">Knoten: <span id="stat-nodes">–</span> &nbsp; Kanten: <span id="stat-edges">–</span></div>
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Suchen …">
+  </div>
+</div>
+
+<!-- Graph Canvas -->
+<div id="canvas">
+  <svg id="svg"></svg>
+  <div id="dropzone">
+    <div class="dz-icon">○</div>
+    <div class="dz-text">
+      <strong>JSON-LD laden</strong>
+      Datei hier ablegen oder „JSON-LD laden" klicken<br>
+      <code>knowledge_graph.jsonld</code>
+    </div>
+  </div>
+</div>
+
+<!-- Right Panel -->
+<div id="panel">
+  <div class="panel-section">
+    <div class="panel-label">Ausgewählter Knoten</div>
+    <div id="empty-panel">Klicke einen Knoten an um Details zu sehen.</div>
+    <div id="node-detail" style="display:none">
+      <div id="node-label"></div>
+      <div id="node-type"></div>
+      <div id="node-id"></div>
+    </div>
+  </div>
+
+  <div class="panel-section" id="edges-section" style="display:none">
+    <div class="panel-label">Kanten (<span id="edge-count">0</span>)</div>
+    <ul class="edge-list" id="edge-list"></ul>
+  </div>
+
+  <div class="panel-section">
+    <div class="panel-label">Legende</div>
+    <div id="legend"></div>
+  </div>
+
+  <div class="panel-section">
+    <div class="panel-label">Typ-Filter</div>
+    <div id="filters"></div>
+  </div>
+
+  <div class="panel-section">
+    <div class="panel-label">Steuerung</div>
+    <button class="ctrl-btn" onclick="resetZoom()">Zoom reset</button>
+    <button class="ctrl-btn" onclick="toggleLabels()">Labels</button>
+    <button class="ctrl-btn" onclick="toggleLinkLabels()">Kanten-Labels</button>
+    <button class="ctrl-btn" onclick="reheat()">Neu anordnen</button>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// Typ → Farbe Mapping
+// ─────────────────────────────────────────────
+const TYPE_COLORS = {
+  "Course":              "var(--col-course)",
+  "Person":              "var(--col-person)",
+  "CollegeOrUniversity": "var(--col-org)",
+  "Organization":        "var(--col-org)",
+  "Article":             "var(--col-article)",
+  "ScholarlyArticle":    "var(--col-article)",
+  "CreativeWork":        "#9ed838",
+  "Event":               "#c8f060",
+};
+
+function typeColor(typeUri) {
+  if (!typeUri) return "var(--col-default)";
+  const local = typeUri.split("/").pop().split("#").pop();
+  return TYPE_COLORS[local] || "var(--col-default)";
+}
+
+function shortLabel(uri) {
+  if (!uri) return "";
+  // file:///docs/Personen/Janine_Bressler → Janine_Bressler
+  const parts = uri.split("/");
+  const last  = decodeURIComponent(parts[parts.length - 1]);
+  return last.replace(/_/g, " ");
+}
+
+function shortPredicate(pred) {
+  return pred.split("/").pop().split("#").pop();
+}
+
+// ─────────────────────────────────────────────
+// Parse JSON-LD → nodes / links für D3
+// ─────────────────────────────────────────────
+function parseJsonLd(jsonld) {
+  const graphArr = jsonld["@graph"] || [];
+  const nodesMap = new Map();
+  const links    = [];
+
+  // Erster Pass: alle Knoten anlegen
+  graphArr.forEach(item => {
+    const id = item["@id"];
+    if (!id) return;
+    nodesMap.set(id, {
+      id,
+      label:  item.label || shortLabel(id),
+      type:   (item["@type"] || item.type || ""),
+      source: item.source_file || "",
+      edges:  item.edges || [],
+    });
+  });
+
+  // Zweiter Pass: Kanten extrahieren
+  // Stub-Knoten für Objekte die kein eigenes Dokument haben
+  graphArr.forEach(item => {
+    const id = item["@id"];
+    if (!id) return;
+    (item.edges || []).forEach(e => {
+      const objId = e.object?.["@id"] || e.object;
+      if (!objId) return;
+
+      if (!nodesMap.has(objId)) {
+        nodesMap.set(objId, {
+          id:     objId,
+          label:  shortLabel(objId),
+          type:   "",
+          source: "",
+          edges:  [],
+          isStub: true,
+        });
+      }
+      links.push({
+        source:    id,
+        target:    objId,
+        predicate: e.predicate || "",
+        label:     e.predicate_label || shortPredicate(e.predicate || ""),
+      });
+    });
+  });
+
+  return { nodes: Array.from(nodesMap.values()), links };
+}
+
+// ─────────────────────────────────────────────
+// D3 Visualisierung
+// ─────────────────────────────────────────────
+let simulation, svg, g, linkSel, nodeSel, labelSel, linkLabelSel;
+let showLabels     = true;
+let showLinkLabels = false;
+let activeFilters  = new Set();
+let allData        = { nodes: [], links: [] };
+let selectedNode   = null;
+
+const svgEl = document.getElementById("svg");
+
+function initSvg() {
+  d3.select(svgEl).selectAll("*").remove();
+  const defs = d3.select(svgEl).append("defs");
+
+  // Arrow marker
+  defs.append("marker")
+    .attr("id", "arrow")
+    .attr("viewBox", "0 -4 8 8")
+    .attr("refX", 18).attr("refY", 0)
+    .attr("markerWidth", 6).attr("markerHeight", 6)
+    .attr("orient", "auto")
+    .append("path")
+      .attr("d", "M0,-4L8,0L0,4")
+      .attr("fill", "var(--border)");
+
+  defs.append("marker")
+    .attr("id", "arrow-hl")
+    .attr("class", "hl")
+    .attr("viewBox", "0 -4 8 8")
+    .attr("refX", 18).attr("refY", 0)
+    .attr("markerWidth", 6).attr("markerHeight", 6)
+    .attr("orient", "auto")
+    .append("path")
+      .attr("d", "M0,-4L8,0L0,4")
+      .attr("fill", "var(--accent)");
+
+  svg = d3.select(svgEl);
+  g   = svg.append("g");
+
+  svg.call(d3.zoom()
+    .scaleExtent([0.05, 4])
+    .on("zoom", e => g.attr("transform", e.transform))
+  );
+}
+
+function render(data) {
+  allData = data;
+  initSvg();
+  buildLegend(data.nodes);
+  buildFilters(data.nodes);
+
+  const w = svgEl.clientWidth;
+  const h = svgEl.clientHeight;
+
+  simulation = d3.forceSimulation(data.nodes)
+    .force("link", d3.forceLink(data.links).id(d => d.id).distance(100).strength(0.4))
+    .force("charge", d3.forceManyBody().strength(-250))
+    .force("center", d3.forceCenter(w / 2, h / 2))
+    .force("collide", d3.forceCollide(28));
+
+  // Links
+  linkSel = g.append("g").attr("class", "links")
+    .selectAll("line")
+    .data(data.links)
+    .join("line")
+      .attr("class", "link")
+      .attr("marker-end", "url(#arrow)");
+
+  // Link labels
+  linkLabelSel = g.append("g").attr("class", "link-labels")
+    .selectAll("text")
+    .data(data.links)
+    .join("text")
+      .attr("class", "link-label")
+      .text(d => d.label);
+
+  // Nodes
+  const nodeG = g.append("g").attr("class", "nodes")
+    .selectAll("g")
+    .data(data.nodes)
+    .join("g")
+      .attr("class", "node")
+      .call(d3.drag()
+        .on("start", dragStart)
+        .on("drag",  dragged)
+        .on("end",   dragEnd)
+      )
+      .on("click", nodeClick)
+      .on("mouseover", nodeHover)
+      .on("mouseout",  nodeOut);
+
+  nodeG.append("circle")
+    .attr("r", d => d.isStub ? 4 : nodeRadius(d))
+    .attr("fill", d => d.isStub ? "var(--col-literal)" : "transparent")
+    .attr("fill-opacity", d => d.isStub ? 0.3 : 0)
+    .attr("stroke", d => d.isStub ? "var(--text-dim)" : typeColor(d.type))
+    .attr("stroke-opacity", d => d.isStub ? 0.3 : 0.7);
+
+  labelSel = nodeG.append("text")
+    .attr("dy", d => nodeRadius(d) + 12)
+    .attr("text-anchor", "middle")
+    .text(d => truncate(d.label, 22));
+
+  nodeSel = nodeG;
+
+  simulation.on("tick", ticked);
+
+  // Stats
+  document.getElementById("stat-nodes").textContent = data.nodes.length;
+  document.getElementById("stat-edges").textContent = data.links.length;
+
+  // Hide drop zone
+  document.getElementById("dropzone").classList.remove("active");
+  document.getElementById("dropzone").style.display = "none";
+}
+
+function nodeRadius(d) {
+  const deg = allData.links.filter(l =>
+    l.source === d || l.source?.id === d.id ||
+    l.target === d || l.target?.id === d.id
+  ).length;
+  return Math.max(7, Math.min(22, 7 + deg * 1.5));
+}
+
+function truncate(s, n) {
+  return s.length > n ? s.slice(0, n) + "…" : s;
+}
+
+function ticked() {
+  linkSel
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
+
+  linkLabelSel
+    .attr("x", d => (d.source.x + d.target.x) / 2)
+    .attr("y", d => (d.source.y + d.target.y) / 2);
+
+  nodeSel.attr("transform", d => `translate(${d.x},${d.y})`);
+}
+
+// ── Drag ──
+function dragStart(event, d) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x; d.fy = d.y;
+}
+function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+function dragEnd(event, d) {
+  if (!event.active) simulation.alphaTarget(0);
+  d.fx = null; d.fy = null;
+}
+
+// ── Node Interaction ──
+function nodeClick(event, d) {
+  event.stopPropagation();
+  selectedNode = d;
+  showNodeDetail(d);
+  highlightNeighbors(d);
+}
+
+function nodeHover(event, d) {
+  if (selectedNode) return;
+  highlightNeighbors(d);
+}
+function nodeOut() {
+  if (selectedNode) return;
+  clearHighlight();
+}
+
+svg && d3.select(svgEl).on("click", () => {
+  selectedNode = null;
+  clearHighlight();
+  clearDetail();
+});
+
+function highlightNeighbors(d) {
+  const neighborIds = new Set([d.id]);
+  const connectedLinks = allData.links.filter(l => {
+    const sid = l.source?.id || l.source;
+    const tid = l.target?.id || l.target;
+    if (sid === d.id) { neighborIds.add(tid); return true; }
+    if (tid === d.id) { neighborIds.add(sid); return true; }
+    return false;
+  });
+
+  linkSel
+    .classed("highlighted", l => connectedLinks.includes(l))
+    .classed("faded", l => !connectedLinks.includes(l))
+    .attr("marker-end", l => connectedLinks.includes(l) ? "url(#arrow-hl)" : "url(#arrow)");
+
+  linkLabelSel.classed("visible", l => connectedLinks.includes(l) && showLinkLabels);
+
+  nodeSel.classed("faded", n => !neighborIds.has(n.id));
+}
+
+function clearHighlight() {
+  linkSel?.classed("highlighted", false).classed("faded", false)
+    .attr("marker-end", "url(#arrow)");
+  linkLabelSel?.classed("visible", showLinkLabels);
+  nodeSel?.classed("faded", false);
+}
+
+// ── Node Detail Panel ──
+function showNodeDetail(d) {
+  document.getElementById("empty-panel").style.display = "none";
+  const det = document.getElementById("node-detail");
+  det.style.display = "block";
+
+  document.getElementById("node-label").textContent = d.label;
+  document.getElementById("node-id").textContent    = d.id;
+
+  const typeLocal = d.type ? d.type.split("/").pop().split("#").pop() : "–";
+  document.getElementById("node-type").textContent = typeLocal;
+
+  // Outgoing edges
+  const outgoing = allData.links.filter(l => (l.source?.id || l.source) === d.id);
+  const incoming = allData.links.filter(l => (l.target?.id || l.target) === d.id);
+  const allEdges = [...outgoing.map(l => ({...l, dir: "→"})), ...incoming.map(l => ({...l, dir: "←"}))];
+
+  document.getElementById("edge-count").textContent = allEdges.length;
+  document.getElementById("edges-section").style.display = allEdges.length ? "block" : "none";
+
+  const list = document.getElementById("edge-list");
+  list.innerHTML = "";
+  allEdges.forEach(l => {
+    const li = document.createElement("li");
+    const otherId  = l.dir === "→"
+      ? (l.target?.id || l.target)
+      : (l.source?.id || l.source);
+    const otherNode = allData.nodes.find(n => n.id === otherId);
+    const otherLabel = otherNode?.label || shortLabel(otherId);
+
+    li.innerHTML = `
+      <span class="edge-pred">${l.dir} ${l.label || shortPredicate(l.predicate)}</span>
+      <span class="edge-obj" data-id="${otherId}">${otherLabel}</span>
+    `;
+    li.querySelector(".edge-obj").addEventListener("click", () => {
+      const target = allData.nodes.find(n => n.id === otherId);
+      if (target) { selectedNode = target; showNodeDetail(target); highlightNeighbors(target); }
+    });
+    list.appendChild(li);
+  });
+}
+
+function clearDetail() {
+  document.getElementById("empty-panel").style.display = "block";
+  document.getElementById("node-detail").style.display = "none";
+  document.getElementById("edges-section").style.display = "none";
+  clearHighlight();
+}
+
+// ── Legend & Filters ──
+function buildLegend(nodes) {
+  const types = [...new Set(nodes.map(n => n.type).filter(Boolean))];
+  const el = document.getElementById("legend");
+  el.innerHTML = "";
+
+  types.forEach(t => {
+    const local = t.split("/").pop().split("#").pop();
+    const div = document.createElement("div");
+    div.className = "legend-item";
+    div.innerHTML = `
+      <div class="legend-dot" style="background:${typeColor(t)}"></div>
+      <span>${local}</span>
+    `;
+    el.appendChild(div);
+  });
+
+  // Stub nodes
+  const div = document.createElement("div");
+  div.className = "legend-item";
+  div.innerHTML = `<div class="legend-dot" style="background:var(--col-literal);opacity:.5"></div><span>Literal / Extern</span>`;
+  el.appendChild(div);
+}
+
+function buildFilters(nodes) {
+  const types = [...new Set(nodes.map(n => n.type).filter(Boolean))];
+  types.forEach(t => activeFilters.add(t));
+  activeFilters.add("__stub__");
+
+  const el = document.getElementById("filters");
+  el.innerHTML = "";
+
+  types.forEach(t => {
+    const local = t.split("/").pop().split("#").pop();
+    const div = document.createElement("label");
+    div.className = "filter-item";
+    div.innerHTML = `
+      <input type="checkbox" checked data-type="${t}">
+      <label style="color:${typeColor(t)}">${local}</label>
+    `;
+    div.querySelector("input").addEventListener("change", e => {
+      if (e.target.checked) activeFilters.add(t); else activeFilters.delete(t);
+      applyFilters();
+    });
+    el.appendChild(div);
+  });
+
+  // Stub toggle
+  const stubDiv = document.createElement("label");
+  stubDiv.className = "filter-item";
+  stubDiv.innerHTML = `<input type="checkbox" checked data-type="__stub__"><label style="color:var(--col-default)">Literale / Extern</label>`;
+  stubDiv.querySelector("input").addEventListener("change", e => {
+    if (e.target.checked) activeFilters.add("__stub__"); else activeFilters.delete("__stub__");
+    applyFilters();
+  });
+  el.appendChild(stubDiv);
+}
+
+function applyFilters() {
+  if (!nodeSel) return;
+  nodeSel.style("display", d => {
+    if (d.isStub) return activeFilters.has("__stub__") ? null : "none";
+    return activeFilters.has(d.type) ? null : "none";
+  });
+  linkSel.style("display", l => {
+    const sId = l.source?.id || l.source;
+    const tId = l.target?.id || l.target;
+    const sn = allData.nodes.find(n => n.id === sId);
+    const tn = allData.nodes.find(n => n.id === tId);
+    const sOk = sn?.isStub ? activeFilters.has("__stub__") : activeFilters.has(sn?.type);
+    const tOk = tn?.isStub ? activeFilters.has("__stub__") : activeFilters.has(tn?.type);
+    return sOk && tOk ? null : "none";
+  });
+}
+
+// ── Search ──
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value.toLowerCase().trim();
+  if (!nodeSel) return;
+  if (!q) { clearHighlight(); return; }
+  const matched = allData.nodes.filter(n =>
+    n.label.toLowerCase().includes(q) || n.id.toLowerCase().includes(q)
+  );
+  if (matched.length === 1) { selectedNode = matched[0]; showNodeDetail(matched[0]); highlightNeighbors(matched[0]); }
+  nodeSel.classed("faded", d => !matched.includes(d));
+});
+
+// ── Controls ──
+function resetZoom() {
+  svg.transition().duration(500)
+    .call(d3.zoom().transform, d3.zoomIdentity);
+}
+function toggleLabels() {
+  showLabels = !showLabels;
+  labelSel?.style("display", showLabels ? null : "none");
+}
+function toggleLinkLabels() {
+  showLinkLabels = !showLinkLabels;
+  linkLabelSel?.classed("visible", showLinkLabels);
+}
+function reheat() {
+  simulation?.alpha(0.5).restart();
+}
+
+// ── File Loading ──
+function loadJsonLd(text) {
+  try {
+    const jsonld = JSON.parse(text);
+    const data   = parseJsonLd(jsonld);
+    if (!data.nodes.length) {
+      alert("Keine Knoten gefunden. Ist das eine gültige JSON-LD Datei mit @graph?");
+      return;
+    }
+    render(data);
+  } catch(err) {
+    alert("Fehler beim Parsen: " + err.message);
+  }
+}
+
+document.getElementById("file-input").addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => loadJsonLd(ev.target.result);
+  reader.readAsText(file);
+});
+
+// Drag & Drop
+const canvas = document.getElementById("canvas");
+canvas.addEventListener("dragover", e => { e.preventDefault(); document.getElementById("dropzone").classList.add("active"); });
+canvas.addEventListener("dragleave", () => document.getElementById("dropzone").classList.remove("active"));
+canvas.addEventListener("drop", e => {
+  e.preventDefault();
+  document.getElementById("dropzone").classList.remove("active");
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => loadJsonLd(ev.target.result);
+  reader.readAsText(file);
+});
+
+// Canvas click clears selection
+document.getElementById("svg").addEventListener("click", () => {
+  selectedNode = null;
+  clearHighlight();
+  clearDetail();
+});
+
+// Show drop zone initially
+document.getElementById("dropzone").classList.add("active");
+</script>
+</body>
+</html>

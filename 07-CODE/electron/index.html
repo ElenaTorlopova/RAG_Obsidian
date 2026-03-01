@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG · LD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Tokens ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0d0d0d;
+  --surface:    #141414;
+  --border:     #232323;
+  --border-hi:  #363636;
+  --text:       #d4cfc8;
+  --text-dim:   #555;
+  --text-muted: #333;
+  --accent:     #c8a96e;   /* warm gold – academic, not techy */
+  --danger:     #c0392b;
+  --radius:     2px;
+
+  --font-mono:  'Geist Mono', monospace;
+  --font-body:  'Fraunces', Georgia, serif;
+}
+
+html, body { height: 100%; background: var(--bg); color: var(--text); overflow: hidden; }
+body { font-family: var(--font-body); font-size: 14px; line-height: 1.6; }
+
+/* ── Titlebar ───────────────────────────────────────────────────── */
+#titlebar {
+  height: 40px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  -webkit-app-region: drag;
+  user-select: none;
+  flex-shrink: 0;
+}
+#titlebar .app-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+#titlebar .app-name span { color: var(--accent); }
+#win-controls {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+}
+.win-btn {
+  width: 28px; height: 22px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s, color .15s;
+}
+.win-btn:hover { border-color: var(--border-hi); color: var(--text); }
+.win-btn.close:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ── Layout ─────────────────────────────────────────────────────── */
+#app {
+  height: calc(100vh - 40px);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────── */
+#sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.sidebar-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.pipeline-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  text-align: left;
+  transition: color .15s, background .15s;
+  border-left: 2px solid transparent;
+  width: 100%;
+}
+.pipeline-btn:hover { color: var(--text); background: rgba(255,255,255,.02); }
+.pipeline-btn.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(200,169,110,.04);
+}
+.pipeline-btn .p-num {
+  font-size: 9px;
+  color: var(--text-muted);
+  min-width: 12px;
+}
+.pipeline-btn.active .p-num { color: var(--accent); opacity: .6; }
+
+.pipeline-btn.all-btn {
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  margin-top: 8px;
+}
+
+/* Sidebar bottom */
+#sidebar-bottom {
+  margin-top: auto;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+#ingest-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 8px;
+  cursor: pointer;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: all .15s;
+}
+#ingest-btn:hover { border-color: var(--accent); color: var(--accent); }
+#ingest-btn:disabled { opacity: .3; cursor: default; }
+
+#docs-path {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 6px 8px;
+  outline: none;
+  margin-bottom: 0;
+}
+#docs-path:focus { border-color: var(--border-hi); }
+#docs-path::placeholder { color: var(--text-muted); }
+
+/* ── Main Area ──────────────────────────────────────────────────── */
+#main {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Results ────────────────────────────────────────────────────── */
+#results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Scrollbar */
+#results::-webkit-scrollbar { width: 3px; }
+#results::-webkit-scrollbar-track { background: transparent; }
+#results::-webkit-scrollbar-thumb { background: var(--border); }
+
+/* Empty state */
+#empty-state {
+  margin: auto;
+  text-align: center;
+  color: var(--text-muted);
+}
+#empty-state .big {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: .3;
+}
+#empty-state p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+}
+
+/* Result card */
+.result-card {
+  animation: fadeUp .3s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.result-pipeline {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.result-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.result-answer {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text);
+  border-left: 1px solid var(--border);
+  padding-left: 20px;
+  margin-bottom: 14px;
+  white-space: pre-wrap;
+}
+
+.result-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.source-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  letter-spacing: .04em;
+}
+
+/* Graph info */
+.graph-info {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.graph-info span { color: var(--accent); opacity: .7; }
+
+/* Question echo */
+.question-echo {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: .04em;
+}
+.question-echo strong { color: var(--text-dim); }
+
+/* Loading state */
+.loading-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.spinner {
+  width: 14px; height: 14px;
+  border: 1px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Error card */
+.error-card {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--danger);
+  border-left: 1px solid var(--danger);
+  padding-left: 16px;
+  opacity: .8;
+}
+
+/* Ingest log */
+#ingest-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 40px;
+}
+#ingest-overlay.visible { display: flex; }
+#ingest-log {
+  width: 100%;
+  max-width: 560px;
+  height: 260px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  padding: 16px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+#ingest-log::-webkit-scrollbar { width: 2px; }
+#ingest-log::-webkit-scrollbar-thumb { background: var(--border); }
+#ingest-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  max-width: 560px;
+  width: 100%;
+}
+
+/* ── Input Bar ──────────────────────────────────────────────────── */
+#input-bar {
+  border-top: 1px solid var(--border);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
+#question-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 8px 0;
+  outline: none;
+  transition: border-color .15s;
+}
+#question-input:focus { border-bottom-color: var(--accent); }
+#question-input::placeholder { color: var(--text-muted); font-style: italic; }
+
+#send-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#send-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+#send-btn:disabled { opacity: .3; cursor: default; }
+</style>
+</head>
+<body>
+
+<!-- Titlebar -->
+<div id="titlebar">
+  <div class="app-name">RAG <span>·</span> LD</div>
+  <div id="win-controls">
+    <button class="win-btn" onclick="window.api.minimize()">−</button>
+    <button class="win-btn" onclick="window.api.maximize()">□</button>
+    <button class="win-btn close" onclick="window.api.close()">×</button>
+  </div>
+</div>
+
+<div id="app">
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-label">Pipeline</div>
+
+    <button class="pipeline-btn active" data-pipeline="all">
+      <span class="p-num">∀</span> Alle drei
+    </button>
+    <button class="pipeline-btn" data-pipeline="1">
+      <span class="p-num">01</span> Basic RAG
+    </button>
+    <button class="pipeline-btn" data-pipeline="2">
+      <span class="p-num">02</span> Metadata RAG
+    </button>
+    <button class="pipeline-btn" data-pipeline="3">
+      <span class="p-num">03</span> Graph RAG
+    </button>
+
+    <div id="sidebar-bottom">
+      <input
+        type="text"
+        id="docs-path"
+        placeholder="./docs"
+        title="Pfad zu den Markdown-Dokumenten"
+      />
+      <button id="ingest-btn">⟳ Ingestieren</button>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div id="main">
+    <div id="results">
+      <div id="empty-state">
+        <div class="big">◈</div>
+        <p>Stelle eine Frage um zu beginnen</p>
+      </div>
+    </div>
+
+    <div id="input-bar">
+      <input
+        type="text"
+        id="question-input"
+        placeholder="Frage eingeben …"
+        autocomplete="off"
+      />
+      <button id="send-btn">Anfragen</button>
+    </div>
+  </div>
+</div>
+
+<!-- Ingest Overlay -->
+<div id="ingest-overlay">
+  <div id="ingest-title">⟳ Dokumente werden indexiert …</div>
+  <div id="ingest-log"></div>
+</div>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────
+let selectedPipeline = "all";
+let isLoading = false;
+
+const PIPELINE_LABELS = {
+  "1": "Basic RAG",
+  "2": "Metadata RAG",
+  "3": "Graph RAG",
+};
+
+// ── Pipeline selector ────────────────────────────────────────────────
+document.querySelectorAll(".pipeline-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".pipeline-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedPipeline = btn.dataset.pipeline;
+  });
+});
+
+// ── Query ────────────────────────────────────────────────────────────
+const input   = document.getElementById("question-input");
+const sendBtn = document.getElementById("send-btn");
+const results = document.getElementById("results");
+
+function setLoading(v) {
+  isLoading = v;
+  sendBtn.disabled = v;
+  input.disabled   = v;
+}
+
+async function submitQuery() {
+  const question = input.value.trim();
+  if (!question || isLoading) return;
+
+  // Clear empty state
+  document.getElementById("empty-state")?.remove();
+
+  setLoading(true);
+  input.value = "";
+
+  // Question header
+  const qEcho = document.createElement("div");
+  qEcho.className = "question-echo";
+  qEcho.innerHTML = `<strong>›</strong> ${escapeHtml(question)}`;
+  results.appendChild(qEcho);
+
+  // Determine which pipelines to query
+  const pipelines = selectedPipeline === "all" ? ["1", "2", "3"] : [selectedPipeline];
+
+  // Loading placeholders
+  const loaders = {};
+  pipelines.forEach(pid => {
+    const card = document.createElement("div");
+    card.className = "loading-card";
+    card.id = `loader-${pid}`;
+    card.innerHTML = `
+      <div class="spinner"></div>
+      <span>${PIPELINE_LABELS[pid]}</span>
+    `;
+    results.appendChild(card);
+    loaders[pid] = card;
+  });
+
+  scrollToBottom();
+
+  // Fire all queries in parallel
+  const queries = pipelines.map(pid =>
+    window.api.query(question, pid)
+      .then(result => renderResult(pid, question, result, loaders[pid]))
+      .catch(err   => renderError(pid, err.message, loaders[pid]))
+  );
+
+  await Promise.allSettled(queries);
+  setLoading(false);
+  scrollToBottom();
+}
+
+function renderResult(pid, question, data, loaderEl) {
+  const card = document.createElement("div");
+  card.className = "result-card";
+  card.style.animationDelay = `${(parseInt(pid) - 1) * 80}ms`;
+
+  const sources = (data.source_documents || [])
+    .map(d => d.metadata?.doc_label || d.metadata?.source || "?")
+    .filter((v, i, a) => a.indexOf(v) === i)
+    .slice(0, 6);
+
+  const graphInfo = data.graph_nodes_visited
+    ? `<div class="graph-info">
+        <span>${data.graph_nodes_visited}</span> Knoten besucht ·
+        <span>${data.graph_edges_found}</span> Kanten ·
+        <span>${data.latency_ms}ms</span>
+       </div>`
+    : `<div class="graph-info"><span>${data.latency_ms}ms</span></div>`;
+
+  card.innerHTML = `
+    <div class="result-header">
+      <div class="result-pipeline">${PIPELINE_LABELS[pid]}</div>
+      <div class="result-meta">${data.latency_ms ? data.latency_ms + "ms" : ""}</div>
+    </div>
+    <div class="result-answer">${escapeHtml(data.answer || "–")}</div>
+    ${sources.length ? `
+      <div class="result-sources">
+        ${sources.map(s => `<span class="source-tag">${escapeHtml(shortSource(s))}</span>`).join("")}
+      </div>` : ""}
+    ${data.graph_nodes_visited ? graphInfo : ""}
+  `;
+
+  loaderEl.replaceWith(card);
+}
+
+function renderError(pid, msg, loaderEl) {
+  const card = document.createElement("div");
+  card.className = "error-card";
+  card.textContent = `${PIPELINE_LABELS[pid]}: ${msg}`;
+  loaderEl.replaceWith(card);
+}
+
+function shortSource(s) {
+  const parts = s.replace(/\\/g, "/").split("/");
+  return parts[parts.length - 1].replace(".md", "");
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function scrollToBottom() {
+  results.scrollTo({ top: results.scrollHeight, behavior: "smooth" });
+}
+
+// Keyboard
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submitQuery(); }
+});
+sendBtn.addEventListener("click", submitQuery);
+
+// ── Ingest ───────────────────────────────────────────────────────────
+const ingestBtn     = document.getElementById("ingest-btn");
+const ingestOverlay = document.getElementById("ingest-overlay");
+const ingestLog     = document.getElementById("ingest-log");
+const docsPathInput = document.getElementById("docs-path");
+
+ingestBtn.addEventListener("click", async () => {
+  ingestLog.textContent = "";
+  ingestOverlay.classList.add("visible");
+  ingestBtn.disabled = true;
+
+  window.api.onIngestLog(line => {
+    ingestLog.textContent += line;
+    ingestLog.scrollTop = ingestLog.scrollHeight;
+  });
+
+  try {
+    await window.api.ingest(docsPathInput.value.trim() || null);
+    ingestLog.textContent += "\n✓ Fertig.";
+  } catch (err) {
+    ingestLog.textContent += `\n✗ Fehler: ${err.message}`;
+  } finally {
+    window.api.offIngest();
+    ingestBtn.disabled = false;
+    setTimeout(() => ingestOverlay.classList.remove("visible"), 1800);
+  }
+});
+
+// Click overlay to dismiss after completion
+ingestOverlay.addEventListener("click", () => {
+  if (!ingestBtn.disabled) ingestOverlay.classList.remove("visible");
+});
+</script>
+</body>
+</html>

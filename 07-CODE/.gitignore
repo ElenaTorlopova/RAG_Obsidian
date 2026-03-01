@@ -1,0 +1,40 @@
+# ── Python ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+
+# ── Virtual Environments ─────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+
+# ── PyCharm ──────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ── ChromaDB / Vektorstore ───────────────────────────────────────────
+chroma_db/
+
+# ── Modelle & Embeddings (lokal gecacht) ─────────────────────────────
+*.pkl
+~/.cache/huggingface/
+
+# ── Evaluierungsergebnisse ───────────────────────────────────────────
+evaluation_results.json
+results*.json
+
+# ── OS ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
