@@ -17,7 +17,6 @@ schema:colleague:
   - "[[Elena Torlopova]]"
   - "[[Thomas Renner]]"
   - "[[Dipl.-Wi.-Ing. Sebastian Stegmüller]]"
-schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:

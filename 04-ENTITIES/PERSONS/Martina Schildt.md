@@ -27,8 +27,6 @@ schema:knows:
 schema:colleague:
   - "[[Christin Seegert]]"
   - "[[Alexander Karim]]"
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
 schema:memberOf:
   - "[[DatenPlus]]"

@@ -12,7 +12,6 @@ dcterms:subjects:
 schema:knows:
 schema:colleague:
   - "[[M. Eng. Janine Breßler]]"
-schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:

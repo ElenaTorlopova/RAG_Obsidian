@@ -31,8 +31,6 @@ schema:colleague:
   - "[[Dr.-Ing. Stefan Rief]]"
   - "[[Prof. Dr.-Ing. Vanessa Borkmann]]"
   - "[[Thomas Renner]]"
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
   - "[[Hochschule Hannover]]"
   - "[[Pitirim Sorokin Syktyvkar State University (SyktSU)]]"

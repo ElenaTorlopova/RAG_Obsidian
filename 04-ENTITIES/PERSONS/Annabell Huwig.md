@@ -25,8 +25,6 @@ schema:knows:
   - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
 schema:memberOf:
   - "[[Makerspace_Ideenw3rk]]"

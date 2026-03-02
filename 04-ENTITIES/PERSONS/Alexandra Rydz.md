@@ -12,7 +12,6 @@ dcterms:subjects:
 schema:knows:
 schema:colleague:
   - "[[Patryk Gadziomski]]"
-schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:

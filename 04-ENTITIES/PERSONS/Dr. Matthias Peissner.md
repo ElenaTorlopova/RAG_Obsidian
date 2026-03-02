@@ -17,7 +17,6 @@ schema:colleague:
   - "[[Dr.-Ing. Moritz Hämmerle]]"
   - "[[Prof. Dr.-Ing. Vanessa Borkmann]]"
   - "[[Dipl.-Wi.-Ing. Sebastian Stegmüller]]"
-schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:

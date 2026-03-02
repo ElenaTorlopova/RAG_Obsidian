@@ -26,8 +26,6 @@ schema:knows:
   - "[[Sebastian Scherübl]]"
 schema:colleague:
   - "[[Alexandra Rydz]]"
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
   - "[[Hochschule der Medien]]"
 schema:memberOf:

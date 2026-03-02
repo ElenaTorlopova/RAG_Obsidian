@@ -17,7 +17,6 @@ schema:colleague:
   - "[[Elena Torlopova]]"
   - "[[Prof. Dr.-Ing. Vanessa Borkmann]]"
   - "[[Thomas Renner]]"
-schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:

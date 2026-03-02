@@ -11,7 +11,6 @@ foaf:phone:
 dcterms:subjects:
 schema:knows:
 schema:colleague:
-schema:affiliation:
 schema:alumniOf:
 schema:memberOf:
 schema:worksFor:
