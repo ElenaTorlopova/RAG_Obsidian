@@ -1,4 +1,5 @@
 ---
+rdf:type:
 schema:name:
 schema:legalName:
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url:
 schema:email:
 schema:telephone:
 schema:address:
-rdf:type:
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -15,8 +15,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

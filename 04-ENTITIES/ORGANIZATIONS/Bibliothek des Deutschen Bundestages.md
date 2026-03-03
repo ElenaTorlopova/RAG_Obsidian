@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Library
 schema:name: Bibliothek des Deutschen Bundestages
 schema:legalName: Die Bibliothek des Deutschen Bundestages
 schema:alternativeName: Bundestagsbibliothek
@@ -8,7 +9,6 @@ schema:url: https://www.bundestag.de/dokumente/bibliothek
 schema:email: bibliothek@bundestag.de
 schema:telephone: +49 (0)30 227-33073
 schema:address: "Platz der Republik 1, \r11011 Berlin"
-rdf:type: schema:Library
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -17,11 +17,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization: "[[Deutscher Bundestag]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-  - library
-  - Berlin
-context:
 ---

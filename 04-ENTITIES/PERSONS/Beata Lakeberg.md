@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday:
 foaf:mbox: beata_dorota.lakeberg@th-wildau.de
 foaf:phone:
-tags:
-  - person
 schema:knows:
   - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
@@ -28,7 +26,7 @@ schema:colleague:
 schema:alumniOf:
 schema:memberOf:
   - "[[xrBibliotheksguide]]"
-  - "[[BibInfo25]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Bayerische Staatsbibliothek]]"
 ---

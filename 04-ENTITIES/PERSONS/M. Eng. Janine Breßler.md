@@ -4,13 +4,10 @@ rdf:type: foaf:Person
 foaf:givenName: Janine
 foaf:familyName: Breßler
 foaf:name: Janine Breßler
-schema:hasCredential: "[[M. Eng.]]"
+schema:hasCredential:
 foaf:birthday:
 foaf:mbox: janine.breßler@th-wildau.de
 foaf:phone:
-tags:
-  - person
-  - artificial_inteligence
 schema:knows:
   - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Elena Torlopova]]"
@@ -26,10 +23,14 @@ schema:knows:
   - "[[Martina Schildt]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
+  - "[[Tracy Arndt#]]"
+  - "[[Marcel-Dominique Block]]"
+  - "[[Prof. Birgit Wilkes]]"
 schema:alumniOf:
   - "[[Technische Hochschule Wildau]]"
 schema:memberOf:
+  - "[[Artificial_Intelligence_BIM25-Lecture]]"
 schema:worksFor:
   - "[[Technische Hochschule Wildau]]"
-foaf:img:
+  - "[[M.Sc. Bibliotheksinformatik]]"
 ---

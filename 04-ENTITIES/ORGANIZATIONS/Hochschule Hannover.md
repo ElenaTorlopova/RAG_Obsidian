@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:University
 schema:name: Hochschule Hannover
 schema:legalName: Hochschule Hannover
 schema:alternativeName: HsH
@@ -7,7 +8,6 @@ schema:url: https://www.hs-hannover.de/
 schema:email: studierendenservice@hs-hannover.de
 schema:telephone: +49 511 9296-8888
 schema:address: "Ricklinger Stadtweg 120\r, 30459 Hannover"
-rdf:type: schema:University
 schema:department:
 schema:hasCourse:
   - "[[B.A. Informationsmanagement]]"
@@ -17,10 +17,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
-tags:
-  - university
 ---

@@ -1,6 +1,6 @@
 ---
-dcterms:title: Alexander Karim
 rdf:type: foaf:Person
+dcterms:title: Alexander Karim
 foaf:givenName: Alexander
 foaf:familyName: Karim
 foaf:name: Alexander Karim
@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday:
 foaf:mbox: alexander_samir_riad.gad_el-karim@th-wildau.de
 foaf:phone:
-tags:
-  - person
 schema:knows:
   - "[[Anja Jungbluth]]"
   - "[[Elena Torlopova]]"
@@ -30,7 +28,7 @@ schema:colleague:
 schema:alumniOf:
 schema:memberOf:
   - "[[DatenPlus]]"
-  - "[[BibInfo25]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Verbundzentrale des GBV (VZG)]]"
 ---

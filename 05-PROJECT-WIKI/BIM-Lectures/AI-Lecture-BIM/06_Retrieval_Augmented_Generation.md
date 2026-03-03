@@ -1,20 +1,15 @@
 ---
+rdf:type: schema:Course
 dcterms:title: 06_Retrieval_Augmented_Generation
 dcterms:contributor:
   - "[[M. Eng. Janine Breßler]]"
 dcterms:created: 2026-01-30
 dcterms:modified: 2026-01-30
-dcterms:subjects:
-  - "[[Artificial Intelligence]]"
-  - "[[Retrieval Augmented Generation]]"
-  - "[[Large Language Models]]"
 dcterms:isPartOf:
   - "[[Artificial_Intelligence_BIM25-Lecture]]"
-  - "[[Bibliotheksinformatik]]"
 dcterms:references:
 schem:language: german
-rdf:type: schema:Course
-schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalProgramName: "[[M.Sc. Bibliotheksinformatik]]"
 schema:educationalLevel: Master
 schema:provider: "[[Technische Hochschule Wildau]]"
 ---

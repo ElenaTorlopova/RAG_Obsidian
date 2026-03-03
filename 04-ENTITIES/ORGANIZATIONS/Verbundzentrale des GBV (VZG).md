@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Verbundzentrale des GBV (VZG)
 schema:legalName: Verbundzentrale des GBV (VZG)
 schema:alternativeName:
@@ -8,7 +9,6 @@ schema:url:
 schema:email:
 schema:telephone: +49(0)551/39-31000
 schema:address: Platz der Göttinger Sieben 1, 37073 Göttingen
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -19,15 +19,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-  - library
-  - library_network
-  - database
-  - discovery_system
-  - digital_library
-  - Göttingen
-context:
 ---

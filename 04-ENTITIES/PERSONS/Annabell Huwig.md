@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday:
 foaf:mbox: annabell.huwig@th-wildau.de
 foaf:phone:
-tags:
-  - person
 schema:knows:
   - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
@@ -29,7 +27,7 @@ schema:alumniOf:
 schema:memberOf:
   - "[[Makerspace_Ideenw3rk]]"
   - "[[xrBibliotheksguide]]"
-  - "[[BibInfo25]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Stadtbibliothek Ludwigshafen]]"
 ---

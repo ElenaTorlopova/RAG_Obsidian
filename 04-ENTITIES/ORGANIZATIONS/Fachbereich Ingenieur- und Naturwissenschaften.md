@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Fachbereich Ingenieur- und Naturwissenschaften
 schema:legalName: Fachbereich Ingenieur- und Naturwissenschaften
 schema:alternativeName:
@@ -8,17 +9,13 @@ schema:url: https://www.th-wildau.de/hochschule/fachbereiche/fachbereich-ingenie
 schema:email:
 schema:telephone:
 schema:address: "Hochschulring 1\r, 15745 Wildau"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
 schema:alumni:
 schema:director:
-schema:parentOrganization:
+schema:parentOrganization: "[[07-CODE/docs/04-ENTITIES/ORGANIZATIONS/Technische Hochschule Wildau|Technische Hochschule Wildau]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-context:
 ---

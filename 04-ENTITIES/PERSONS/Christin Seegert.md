@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday:
 foaf:mbox: christin.seegert@th-wildau.de
 foaf:phone:
-tags:
-  - person
 schema:knows:
   - "[[Alexander Karim]]"
   - "[[Anja Jungbluth]]"
@@ -30,7 +28,7 @@ schema:colleague:
 schema:alumniOf:
 schema:memberOf:
   - "[[DatenPlus]]"
-  - "[[BibInfo25]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Verbundzentrale des GBV (VZG)]]"
 ---

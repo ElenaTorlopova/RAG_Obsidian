@@ -8,7 +8,6 @@ schema:hasCredential:
 foaf:birthday:
 foaf:mbox:
 foaf:phone:
-dcterms:subjects:
 schema:knows:
 schema:colleague:
 schema:alumniOf:

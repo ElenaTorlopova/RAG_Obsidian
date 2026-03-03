@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Fraunhofer-Institut für Zuverlässigkeit und Mikrointegration IZM
 schema:legalName: Das Fraunhofer-Institut für Zuverlässigkeit und Mikrointegration IZM
 schema:alternativeName: Fraunhofer IZM
@@ -7,17 +8,15 @@ schema:url: https://www.izm.fraunhofer.de/
 schema:email: info@izm.fraunhofer.de
 schema:telephone: +49 30 4 64 03-1 00
 schema:address: "Gustav-Meyer-Allee 25 \rGebäude 17/3, \r13355 Berlin"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
   - "[[Patryk Gadziomski]]"
+  - "[[07-CODE/docs/04-ENTITIES/PERSONS/Alexandra Rydz|Alexandra Rydz]]"
 schema:alumni:
 schema:director:
 schema:parentOrganization: "[[Fraunhofer-Gesellschaft]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

@@ -1,18 +1,15 @@
 ---
+rdf:type: schema:Course
 dcterms:title: 03_HTML
 dcterms:contributor:
   - "[[Marcel-Dominique Block]]"
 dcterms:created: 2026-02-01
 dcterms:modified: 2026-02-01
-dcterms:subjects:
-  - "[[Web Development]]"
-  - "[[HTML]]"
 dcterms:isPartOf:
   - "[[Internetprogramming-Lecture-BIM25]]"
 dcterms:references:
 schem:language: german
-rdf:type: schema:Course
-schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalProgramName: "[[M.Sc. Bibliotheksinformatik]]"
 schema:educationalLevel: Master
 schema:provider: "[[Technische Hochschule Wildau]]"
 ---

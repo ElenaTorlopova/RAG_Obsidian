@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday: 1979-09-04
 foaf:mbox: elena.torlopova@th-wildau.de
 foaf:phone:
-tags:
-  - person
 schema:knows:
   - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Anja Jungbluth]]"
@@ -37,7 +35,7 @@ schema:alumniOf:
 schema:memberOf:
   - "[[RAG_Obsidian]]"
   - "[[DatenPlus]]"
-  - "[[BibInfo25]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
   - "[[Gottfried Wilhelm Leibniz Bibliothek –  Niedersächsische Landesbibliothek]]"

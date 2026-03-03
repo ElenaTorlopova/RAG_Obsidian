@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Library
 schema:name: Herzogin Anna Amalia Bibliothek
 schema:legalName: Die Herzogin Anna Amalia Bibliothek
 schema:alternativeName: HAAB
@@ -8,7 +9,6 @@ schema:url: https://www.klassik-stiftung.de/herzogin-anna-amalia-bibliothek/die-
 schema:email: haab.info@klassik-stiftung.de
 schema:telephone: +49 3643 545 205
 schema:address: "Platz der Demokratie 1, \r99423 Weimar"
-rdf:type: schema:Library
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -17,12 +17,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization: "[[Klassik Stiftung Weimar]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-  - research
-  - library
-  - Weimar
-context:
 ---

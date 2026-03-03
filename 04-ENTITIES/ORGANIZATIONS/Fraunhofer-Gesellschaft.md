@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Fraunhofer-Gesellschaft
 schema:legalName: Die Fraunhofer-Gesellschaft
 schema:alternativeName: FhG
@@ -7,7 +8,6 @@ schema:url: https://www.fraunhofer.de/
 schema:email:
 schema:telephone: +49 89 1205-0
 schema:address: "Hansastraße 27c, \r80686 München"
-rdf:type: schema:Organization
 schema:department:
   - "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
   - "[[Fraunhofer-Institut für Produktionstechnik und Automatisierung IPA]]"
@@ -23,8 +23,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

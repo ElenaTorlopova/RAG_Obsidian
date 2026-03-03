@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Library
 schema:name: "Gottfried Wilhelm Leibniz Bibliothek –\r Niedersächsische Landesbibliothek"
 schema:legalName: "Gottfried Wilhelm Leibniz Bibliothek – \rNiedersächsische Landesbibliothek"
 schema:alternativeName: GWLB
@@ -7,7 +8,6 @@ schema:url:
 schema:email: information@gwlb.de
 schema:telephone: +49 511 1267-0
 schema:address: "Waterloostraße 8\r, 30169 Hannover"
-rdf:type: schema:Library
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

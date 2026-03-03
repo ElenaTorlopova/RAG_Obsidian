@@ -1,18 +1,15 @@
 ---
+rdf:type: schema:Course
 dcterms:title: 02_Heterogenität
 dcterms:contributor:
   - "[[Tracy Arndt]]"
 dcterms:created: 2026-01-31
 dcterms:modified: 2026-01-31
-dcterms:subjects:
-  - "[[Data Formats]]"
-  - "[[Metadata]]"
 dcterms:isPartOf:
-  - Interfaces_and_Dataformats_Lecture-BIM25
+  - "[[Interfaces_and_Dataformats_Lecture-BIM25]]"
 dcterms:references:
 schem:language: german
-rdf:type: schema:Course
-schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalProgramName: "[[M.Sc. Bibliotheksinformatik]]"
 schema:educationalLevel: Master
 schema:provider: "[[Technische Hochschule Wildau]]"
 ---

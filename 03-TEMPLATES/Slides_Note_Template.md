@@ -3,7 +3,6 @@ dcterms:title:
 dcterms:contributor:
 dcterms:created:
 dcterms:modified:
-dcterms:subjects:
 dcterms:isPartOf:
 dcterms:references:
 schem:language:

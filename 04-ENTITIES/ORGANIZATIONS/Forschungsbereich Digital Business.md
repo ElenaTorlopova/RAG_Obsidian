@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Digital Business
 schema:legalName: Digital Business
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url: https://www.digital.iao.fraunhofer.de/
 schema:email: assistenz.ikt@iao.fraunhofer.de
 schema:telephone: +49 711 970-5120
 schema:address: "Nobelstraße 12\r, 70569 Stuttgart"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:director:
   - "[[Thomas Renner]]"
 schema:parentOrganization: "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

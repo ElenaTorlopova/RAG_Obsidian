@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Mobilitäts- und Innovationssysteme
 schema:legalName: Mobilitäts- und Innovationssysteme
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url: https://www.iao.fraunhofer.de/de/forschung/forschungsbereiche/mobili
 schema:email: sebastian.stegmueller@iao.fraunhofer.de
 schema:telephone: +49 711 970-2320
 schema:address: "Nobelstraße 12\r, 70569 Stuttgart"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:director:
   - "[[Dipl.-Wi.-Ing. Sebastian Stegmüller]]"
 schema:parentOrganization: "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---
