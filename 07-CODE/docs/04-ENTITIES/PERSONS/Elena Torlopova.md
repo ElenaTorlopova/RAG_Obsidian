@@ -25,8 +25,12 @@ schema:knows:
   - "[[Martina Schildt]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
+  - "[[Dipl.-Wi.-Ing. Sebastian Stegmüller]]"
+  - "[[Dr. Matthias Peissner]]"
+  - "[[Dr.-Ing. Moritz Hämmerle]]"
+  - "[[Dr.-Ing. Stefan Rief]]"
+  - "[[Prof. Dr.-Ing. Vanessa Borkmann]]"
+  - "[[Thomas Renner]]"
 schema:alumniOf:
   - "[[Hochschule Hannover]]"
   - "[[Pitirim Sorokin Syktyvkar State University (SyktSU)]]"
@@ -35,7 +39,7 @@ schema:memberOf:
   - "[[DatenPlus]]"
   - "[[BibInfo25]]"
 schema:worksFor:
-  - "[[Das Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
-  - "[[Gottfried Wilhelm Leibniz Bibliothek –\rNiedersächsische Landesbibliothek]]"
+  - "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
+  - "[[Gottfried Wilhelm Leibniz Bibliothek –  Niedersächsische Landesbibliothek]]"
 foaf:img:
 ---

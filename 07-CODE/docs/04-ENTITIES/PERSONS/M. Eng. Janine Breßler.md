@@ -26,8 +26,6 @@ schema:knows:
   - "[[Martina Schildt]]"
   - "[[Sebastian Scherübl]]"
 schema:colleague:
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
   - "[[Technische Hochschule Wildau]]"
 schema:memberOf:

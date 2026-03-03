@@ -11,7 +11,6 @@ foaf:phone: "049176609441728"
 tags:
   - person
 schema:knows:
-  - "[[00-NETWORK/DB/Elena Torlopova]]"
   - "[[Anja Jungbluth]]"
   - "[[Alexander Karim]]"
   - "[[Annabell Huwig]]"
@@ -27,8 +26,6 @@ schema:knows:
   - "[[Sebastian Scherübl]]"
 schema:colleague:
   - "[[Alexandra Rydz]]"
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
   - "[[Hochschule der Medien]]"
 schema:memberOf:
@@ -37,7 +34,7 @@ schema:memberOf:
   - "[[Studierendenrat TH Wildau]]"
   - "[[Deutsche Gesellschaft für Information und Wissen e.V.]]"
 schema:worksFor:
-  - "[[Fraunhofer IZM]]"
+  - "[[Fraunhofer-Institut für Zuverlässigkeit und Mikrointegration IZM]]"
   - "[[Bibliothek des Handwerks]]"
 foaf:img:
 ---

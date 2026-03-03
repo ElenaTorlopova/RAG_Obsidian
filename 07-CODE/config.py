@@ -57,3 +57,6 @@ GRAPH_HOP_DEPTH = int(os.getenv("GRAPH_HOP_DEPTH", "2"))
 # Dokumente
 # ------------------------------------------------------------------
 DOCS_PATH = os.getenv("DOCS_PATH", "./docs")
+
+# Propmts
+SOUL_PROMPT = os.getenv("./prompts")

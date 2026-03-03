@@ -27,8 +27,6 @@ schema:knows:
 schema:colleague:
   - "[[Martina Schildt]]"
   - "[[Christin Seegert]]"
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
 schema:memberOf:
   - "[[DatenPlus]]"

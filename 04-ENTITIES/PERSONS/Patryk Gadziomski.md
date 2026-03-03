@@ -36,5 +36,4 @@ schema:memberOf:
 schema:worksFor:
   - "[[Fraunhofer-Institut für Zuverlässigkeit und Mikrointegration IZM]]"
   - "[[Bibliothek des Handwerks]]"
-foaf:img:
 ---

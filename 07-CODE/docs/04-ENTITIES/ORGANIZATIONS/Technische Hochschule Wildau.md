@@ -19,7 +19,7 @@ schema:employee:
 schema:alumni:
   - "[[M. Eng. Janine Breßler]]"
 schema:director:
-  - "[[Prof. Dr. Ulrike]]"
+  - "[[Prof. Dr. Ulrike Tippe]]"
 schema:parentOrganization:
 schema:subsidiary:
 schema:affiliation:

@@ -41,5 +41,4 @@ schema:memberOf:
 schema:worksFor:
   - "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
   - "[[Gottfried Wilhelm Leibniz Bibliothek –  Niedersächsische Landesbibliothek]]"
-foaf:img:
 ---

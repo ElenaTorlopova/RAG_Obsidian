@@ -27,8 +27,6 @@ schema:knows:
 schema:colleague:
   - "[[Alexander Karim]]"
   - "[[Martina Schildt]]"
-schema:affiliation:
-  - "[[Technische Hochschule Wildau]]"
 schema:alumniOf:
 schema:memberOf:
   - "[[DatenPlus]]"

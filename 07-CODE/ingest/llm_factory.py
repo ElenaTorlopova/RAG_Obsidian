@@ -17,6 +17,7 @@ from config import KISSKI_API_KEY, KISSKI_BASE_URL, LLM_MODEL, LLM_TEMPERATURE, 
 @lru_cache(maxsize=1)
 def get_llm(model: str = LLM_MODEL, temperature: float = LLM_TEMPERATURE) -> ChatOpenAI:
     """ChatOpenAI gegen den KISSKI-Endpunkt."""
+    print(f"[Factory] Lade LLM-Modell: {LLM_MODEL}")
     return ChatOpenAI(
         model=model,
         temperature=temperature,
