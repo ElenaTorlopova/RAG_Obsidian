@@ -1,6 +1,6 @@
 ---
-dcterms:title: Alexandra Rydz
 rdf:type: foaf:Person
+dcterms:title: Alexandra Rydz
 foaf:givenName: Alexandra
 foaf:familyName: Rydz
 foaf:name: Alexandra Rydz

@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Cognitive Engineering and Production
 schema:legalName: Cognitive Engineering and Production
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url: https://www.engineering-produktion.iao.fraunhofer.de/
 schema:email: assistenz.CEP@iao.fraunhofer.de
 schema:telephone: +49 711 970-2065
 schema:address: "Nobelstraße 12\r, 70569 Stuttgart"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:director:
   - "[[Dr.-Ing. Moritz Hämmerle]]"
 schema:parentOrganization: "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

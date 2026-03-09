@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday: 2000-10-09
 foaf:mbox: patryk.gadziomski@th-wildau.de
 foaf:phone: "049176609441728"
-tags:
-  - person
 schema:knows:
   - "[[Anja Jungbluth]]"
   - "[[Alexander Karim]]"
@@ -33,8 +31,8 @@ schema:memberOf:
   - "[[RAG_Obsidian]]"
   - "[[Studierendenrat TH Wildau]]"
   - "[[Deutsche Gesellschaft für Information und Wissen e.V.]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Fraunhofer-Institut für Zuverlässigkeit und Mikrointegration IZM]]"
   - "[[Bibliothek des Handwerks]]"
-foaf:img:
 ---

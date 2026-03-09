@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:University
 schema:name: Pitirim Sorokin Syktyvkar State University (SyktSU)
 schema:legalName: Сыктывкарский государственный университет имени Питирима Сорокина
 schema:alternativeName: SyktSU; СГУ им. Питирима Сорокина
@@ -7,7 +8,6 @@ schema:url: https://en.syktsu.ru/
 schema:email: inter@syktsu.ru
 schema:telephone: +7 (8212) 390-387
 schema:address: Northwestern Federal District, Komi Republic, Syktyvkar, Oktyabrsky prosp., 55
-rdf:type: schema:University
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,10 +16,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
-tags:
-  - university
 ---

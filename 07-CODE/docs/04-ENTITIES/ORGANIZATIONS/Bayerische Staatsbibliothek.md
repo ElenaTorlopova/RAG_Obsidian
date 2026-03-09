@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Library
 schema:name: Bayerische Staatsbibliothek
 schema:legalName: Bayerische Staatsbibliothek
 schema:alternativeName: BSB
@@ -8,7 +9,6 @@ schema:url: https://www.bsb-muenchen.de/
 schema:email:
 schema:telephone: +49 89 28638-2322
 schema:address: "Ludwigstr. 16, \r80539 München"
-rdf:type: schema:Library
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -17,11 +17,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-  - library
-  - München
-context:
 ---

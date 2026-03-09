@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Deutsche Gesellschaft für Information und Wissen e.V.
 schema:legalName: Die Deutsche Gesellschaft für Information und Wissen e.V.
 schema:alternativeName: DGI
@@ -7,7 +8,6 @@ schema:url: https://dgi-info.de/
 schema:email: mail@dgi-info.de
 schema:telephone: +49 69 4303-13
 schema:address: "Windmühlstraße 3\r, 60329 Frankfurt am Main"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -15,8 +15,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

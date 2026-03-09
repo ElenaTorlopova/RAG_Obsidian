@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Mensch-Technik-Interaktion
 schema:legalName: Mensch-Technik-Interaktion
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url: https://www.hci.iao.fraunhofer.de/
 schema:email: matthias.peissner@iao.fraunhofer.de
 schema:telephone: +49 711 970-2311
 schema:address: "Nobelstraße 12\r, 70569 Stuttgart"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:director:
   - "[[Dr. Matthias Peissner]]"
 schema:parentOrganization: "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

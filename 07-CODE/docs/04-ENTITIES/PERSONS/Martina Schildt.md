@@ -8,8 +8,6 @@ schema:hasCredential:
 foaf:birthday:
 foaf:mbox: martina.schildt@th-wildau.de
 foaf:phone:
-tags:
-  - person
 schema:knows:
   - "[[Patryk Gadziomski|Patryk Gadziomski]]"
   - "[[Elena Torlopova]]"
@@ -30,8 +28,8 @@ schema:colleague:
 schema:alumniOf:
 schema:memberOf:
   - "[[DatenPlus]]"
-  - "[[BibInfo25]]"
   - "[[Folio]]"
+  - "[[M.Sc. Bibliotheksinformatik]]"
 schema:worksFor:
   - "[[Verbundzentrale des GBV (VZG)]]"
 ---

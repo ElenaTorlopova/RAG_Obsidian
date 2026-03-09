@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Stadtsystem-Gestaltung
 schema:legalName: Stadtsystem-Gestaltung
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url: https://www.muse.iao.fraunhofer.de/
 schema:email: vanessa.borkmann@iao.fraunhofer.de
 schema:telephone: +49 151 16327782
 schema:address: "Nobelstraße 12\r, 70569 Stuttgart"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:director:
   - "[[Prof. Dr.-Ing. Vanessa Borkmann]]"
 schema:parentOrganization: "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

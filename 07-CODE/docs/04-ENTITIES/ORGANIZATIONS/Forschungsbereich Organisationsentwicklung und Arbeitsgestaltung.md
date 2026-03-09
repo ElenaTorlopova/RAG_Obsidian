@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Organization
 schema:name: Organisationsentwicklung und Arbeitsgestaltung
 schema:legalName: Organisationsentwicklung und Arbeitsgestaltung
 schema:alternativeName:
@@ -7,7 +8,6 @@ schema:url: https://www.iao.fraunhofer.de/de/forschung/forschungsbereiche/organi
 schema:email: stefan.rief@iao.fraunhofer.de
 schema:telephone: +49 711 970-5479
 schema:address: "Nobelstraße 12\r, 70569 Stuttgart"
-rdf:type: schema:Organization
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,8 +16,6 @@ schema:director:
   - "[[Dr.-Ing. Stefan Rief]]"
 schema:parentOrganization: "[[Fraunhofer-Institut für Arbeitswirtschaft und Organisation IAO]]"
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
 ---

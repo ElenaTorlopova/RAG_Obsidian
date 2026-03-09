@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:University
 schema:name: Hochschule der Medien
 schema:legalName: Hochschule der Medien
 schema:alternativeName: HdM
@@ -7,7 +8,6 @@ schema:url: https://hdm-stuttgart.de/
 schema:email:
 schema:telephone: +49 711 8923 10
 schema:address: Nobelstraße 10, 70569 Stuttgart
-rdf:type: schema:University
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -16,10 +16,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-dcterms:subjects:
-tags:
-  - university
 ---

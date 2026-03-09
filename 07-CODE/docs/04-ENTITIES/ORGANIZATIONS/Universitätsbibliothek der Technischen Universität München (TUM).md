@@ -1,4 +1,5 @@
 ---
+rdf:type: schema:Library
 schema:name: Universitätsbibliothek der Technischen Universität München (TUM)
 schema:legalName: Die Universitätsbibliothek der Technischen Universität München (TUM)
 schema:alternativeName: Universitätsbibliothek der TUM
@@ -8,7 +9,6 @@ schema:url: https://www.ub.tum.de/
 schema:email: information@ub.tum.de
 schema:telephone: +49 89 189 659 220
 schema:address: " Arcisstraße 21\r, 80333 München"
-rdf:type: schema:Library
 schema:department:
 schema:hasCourse:
 schema:employee:
@@ -17,12 +17,6 @@ schema:alumni:
 schema:director:
 schema:parentOrganization:
 schema:subsidiary:
-schema:affiliation:
 schema:memberOf:
 schema:sameAs:
-tags:
-  - library
-  - university
-  - München
-context:
 ---

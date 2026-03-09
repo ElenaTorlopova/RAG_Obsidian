@@ -1,18 +1,15 @@
 ---
+rdf:type: schema:Organization
 dcterms:title: 04_ISO_OSI_Referenzmodell
 dcterms:contributor:
   - "[[Prof. Birgit Wilkes]]"
 dcterms:created: 2026-02-01
 dcterms:modified: 2026-02-01
-dcterms:subjects:
-  - "[[Informatics]]"
-  - "[[Internet]]"
 dcterms:isPartOf:
   - "[[Spectrum_Informatics-Lecture-BIM25]]"
 dcterms:references:
 schem:language: german
-rdf:type: schema:Organization
-schema:educationalProgramName: "[[Bibliotheksinformatik]]"
+schema:educationalProgramName: "[[M.Sc. Bibliotheksinformatik]]"
 schema:educationalLevel: Master
 schema:provider: "[[Technische Hochschule Wildau]]"
 ---
